@@ -19,11 +19,13 @@ public class SimpleShootSkill : Skill
         Rigidbody2D rigi = newBullet.GetComponent<Rigidbody2D>();
 
         PlayerInfo opponentTransform = gameData.GetMyOpponentInfo(GetMyPlayerInfo().playerId);
-        Vector3 direction = transform.position - Vector3.zero;
-
+        Vector2 direction = transform.position - Vector3.zero;
+        Vector3 slightlyRandomPosition = Vector3.zero;
         if (opponentTransform != null)
-            direction = transform.position - opponentTransform.playerSceneReference.position;
+            slightlyRandomPosition = new Vector3(opponentTransform.playerSceneReference.position.x + Random.Range(-3f, 3f), opponentTransform.playerSceneReference.position.y + Random.Range(-3f, 3f), 1f);
 
-        rigi.AddForceAtPosition(direction.normalized * 300f * -5f, transform.position);
+        direction = transform.position - slightlyRandomPosition;
+
+        rigi.AddForceAtPosition(direction.normalized * 300f * -2f, transform.position);
     }
 }
