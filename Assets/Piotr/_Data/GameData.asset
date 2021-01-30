@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e364511dca68fa14fb15ca7ff5cb3755, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  currentPlayers: []
+  worldObjects: []
+  players: []

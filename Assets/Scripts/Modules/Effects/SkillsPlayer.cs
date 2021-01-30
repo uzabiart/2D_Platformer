@@ -27,6 +27,6 @@ public class SkillsPlayer : MonoBehaviour
 
     private void UseQ()
     {
-        skillQ.UseSkill();
+        skillQ.useSkillIfAble();
     }
 }

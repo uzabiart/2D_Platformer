@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Effect : Entity
+public class EffectsReceiver : Module
 {
-    public virtual void PlayMyEffect()
-    {
-    }
 }

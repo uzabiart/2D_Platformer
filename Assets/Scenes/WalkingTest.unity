@@ -2137,9 +2137,9 @@ MonoBehaviour:
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1388320617}
-        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
-        m_MethodName: OnPlayerJoin
+      - m_Target: {fileID: 11400000, guid: b9247676c5305874dbd9f685f1ad817e, type: 2}
+        m_TargetAssemblyTypeName: GameData, Assembly-CSharp
+        m_MethodName: AddPlayer
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
