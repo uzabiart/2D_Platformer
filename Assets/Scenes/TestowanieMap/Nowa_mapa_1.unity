@@ -2107,9 +2107,9 @@ MonoBehaviour:
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1388320617}
-        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
-        m_MethodName: OnPlayerJoin
+      - m_Target: {fileID: 11400000, guid: b9247676c5305874dbd9f685f1ad817e, type: 2}
+        m_TargetAssemblyTypeName: GameData, Assembly-CSharp
+        m_MethodName: AddPlayer
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2231,7 +2231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37e36e452d121346a88fbab58c381cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimumCameraDistance: 8
+  minimumCameraDistance: 5
   minimalPlayerRangeToZoomOut: 4
   rateOfZoom: 1.7
   mainCamera: {fileID: 519420031}
