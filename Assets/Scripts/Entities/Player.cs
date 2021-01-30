@@ -8,14 +8,12 @@ public class Player : MapObject
     public GameObjectData playerData;
     public string playerId;
     public SpriteRenderer myView;
-    public Color myColor;
-    public Color p1;
-    public Color p2;
+    public PlayerInfo myPlayerInfo;
 
-    private void Start()
+    public void UpdateMyInfo(PlayerInfo playerInfo)
     {
-        playerId = "Player#" + UnityEngine.Random.Range(0, 999999).ToString();
-        SetupMyColor();
+        playerInfo.myColor = new Color(GetRandomFloat(), GetRandomFloat(), GetRandomFloat(), 1f);
+        myPlayerInfo = playerInfo;
     }
 
     public string GetMyPlayerId()
@@ -25,16 +23,6 @@ public class Player : MapObject
 
     private void SetupMyColor()
     {
-        Player[] playersInScene = FindObjectsOfType<Player>();
-
-        //myColor = new Color(GetRandomFloat(), GetRandomFloat(), GetRandomFloat(), 1f);
-
-        if (playersInScene.Length == 1)
-            myColor = p1;
-        else
-            myColor = p2;
-
-        myView.color = myColor;
     }
 
     float GetRandomFloat()

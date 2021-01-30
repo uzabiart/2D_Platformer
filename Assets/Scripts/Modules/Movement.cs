@@ -26,7 +26,7 @@ public class Movement : Module
         {
             animator.transform.localScale = new Vector2(0.7f, 0.7f);
         }
-        animator.Play("Ponka_Run", 1, 0.0f);
+        //animator.Play("Ponka_Run", 0, 0.0f);
         myEntity.transform.Translate(input * Time.deltaTime * speed);
     }
 }

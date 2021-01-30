@@ -5,9 +5,13 @@ using UnityEngine;
 public class Module : MonoBehaviour
 {
     protected Entity myEntity;
+    protected GameContext gameContext;
+    protected GameData gameData;
 
-    private void Awake()
+    public virtual void Awake()
     {
         myEntity = GetComponentInParent<Entity>();
+        gameContext = FindObjectOfType<GameContext>();
+        gameData = gameContext.gameData;
     }
 }
