@@ -167,7 +167,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 7112334925526036141}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5975839459928799843
 SpriteRenderer:
@@ -345,7 +345,7 @@ MonoBehaviour:
   effects:
   - {fileID: 7112334926754286492}
   myCollider: {fileID: 7112334925588165941}
-  hitEffect: {fileID: 8180112205165540097, guid: 75f858f941d9dd7438c9d82dc81bc97c, type: 3}
+  hitEffect: {fileID: 7562955901990179892, guid: 68ad67d4d7eef7e45b4b9eb96c12e1f2, type: 3}
 --- !u!61 &7112334925588165941
 BoxCollider2D:
   m_ObjectHideFlags: 0
