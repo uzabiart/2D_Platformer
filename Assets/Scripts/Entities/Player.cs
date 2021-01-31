@@ -6,7 +6,6 @@ using UnityEngine;
 public class Player : MapObject
 {
     public GameObjectData playerData;
-    public string playerId;
     public SpriteRenderer myView;
     public PlayerInfo myPlayerInfo;
 
@@ -18,7 +17,7 @@ public class Player : MapObject
 
     public string GetMyPlayerId()
     {
-        return playerId;
+        return myPlayerInfo.playerId;
     }
 
     private void SetupMyColor()

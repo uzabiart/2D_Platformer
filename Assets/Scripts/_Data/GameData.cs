@@ -41,8 +41,25 @@ public class GameData : ScriptableObject
         return null;
     }
 
-    public void PlayerDead()
+    public PlayerInfo GetMyPlayerInfo(string playerId)
     {
+        foreach (PlayerInfo player in players)
+        {
+            if (player.playerId == playerId)
+                return player;
+        }
+        return null;
+    }
+
+    public void PlayerDead(PlayerInfo player)
+    {
+        foreach (PlayerInfo p in players)
+        {
+            if (p == player)
+            {
+                players.Remove(p);
+            }
+        }
     }
 }
 
