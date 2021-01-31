@@ -38,7 +38,7 @@ public class MushroomBlowup : Module
 
     public void UpdateMyColor(Color newColor)
     {
-        mySprite.color = newColor;
+        //mySprite.color = newColor;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
