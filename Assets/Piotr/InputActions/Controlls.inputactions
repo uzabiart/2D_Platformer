@@ -141,7 +141,7 @@
                 {
                     "name": "",
                     "id": "6ba5b94a-14a0-4eca-8917-6fbaad8def44",
-                    "path": "<XInputController>/buttonWest",
+                    "path": "<XInputController>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -153,6 +153,17 @@
                     "name": "",
                     "id": "ff11b4c9-043f-42c0-92f8-1eac1e865e49",
                     "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f5ca262f-8501-4c26-9a0a-275fe1e0874f",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
