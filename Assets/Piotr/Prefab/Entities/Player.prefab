@@ -76,8 +76,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health:
-    maxHealth: 120
-    currentHealth: 120
+    maxHealth: 60
+    currentHealth: 60
   fillBar: {fileID: 8429573791600898578}
 --- !u!1 &1052997356510447529
 GameObject:
