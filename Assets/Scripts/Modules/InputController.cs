@@ -11,6 +11,7 @@ public class InputController : Module
 
     public Action onSkillUseQ;
     public Action onSkillUltiUsed;
+    public Action onDashUsed;
 
     void Update()
     {
@@ -32,5 +33,10 @@ public class InputController : Module
     public void UltiSkill()
     {
         onSkillUltiUsed?.Invoke();
+    }
+
+    public void DashSkill()
+    {
+        onDashUsed?.Invoke();
     }
 }

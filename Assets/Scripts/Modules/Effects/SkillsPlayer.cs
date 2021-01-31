@@ -21,12 +21,14 @@ public class SkillsPlayer : MonoBehaviour
     {
         inputController.onSkillUseQ += UseBasic;
         inputController.onSkillUltiUsed += UseUlti;
+        inputController.onDashUsed += UseDash;
     }
 
     private void OnDisable()
     {
         inputController.onSkillUseQ -= UseBasic;
         inputController.onSkillUltiUsed -= UseUlti;
+        inputController.onDashUsed -= UseDash;
     }
 
     private void UseBasic()

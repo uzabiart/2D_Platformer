@@ -7,6 +7,7 @@ public class Movement : Module
 {
     public int speed;
     public Animator animator;
+    Vector3 movingVector;
 
     public void StopMove()
     {
@@ -18,6 +19,7 @@ public class Movement : Module
 
     public void Move(Vector3 input)
     {
+        movingVector = input;
         if (input.x < 0)
         {
             animator.transform.localScale = new Vector2(-0.7f, 0.7f);
@@ -28,5 +30,10 @@ public class Movement : Module
         }
         //animator.Play("Ponka_Run", 0, 0.0f);
         myEntity.transform.Translate(input * Time.deltaTime * speed);
+    }
+
+    public Vector3 GetMyMovingVector()
+    {
+        return movingVector;
     }
 }
