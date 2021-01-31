@@ -10,6 +10,7 @@ public class InputController : Module
     public Movement movementModule;
 
     public Action onSkillUseQ;
+    public Action onSkillUltiUsed;
 
     void Update()
     {
@@ -23,8 +24,13 @@ public class InputController : Module
         movementInput = ctx.ReadValue<Vector2>();
     }
 
-    public void UseSkill()
+    public void BasicSkill()
     {
         onSkillUseQ?.Invoke();
+    }
+
+    public void UltiSkill()
+    {
+        onSkillUltiUsed?.Invoke();
     }
 }

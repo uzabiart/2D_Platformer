@@ -12,6 +12,7 @@ public class PlayerPickMeUp : Module
         if (player == null) return;
         SkillsPlayer skillsPlayer = player.GetComponentInChildren<SkillsPlayer>();
         PickupSkill myPickupSkill = GetComponentInParent<PickupSkill>();
+        if (skillsPlayer.CheckIfAlreadyHaveThisSkill(myPickupSkill.mySkillData)) return;
         skillsPlayer.PickUpNewSkill(myPickupSkill.mySkillData);
         Transform newPickupEffect = Instantiate(pickupEffect).transform;
         newPickupEffect.position = transform.position;

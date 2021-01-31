@@ -5,6 +5,7 @@ using UnityEngine;
 public class Skill : Module
 {
     PlayerInfo myPlayerInfo;
+    public SkillData mySkillData;
     protected bool isCd;
     protected float cooldown = 5f;
 
@@ -13,6 +14,11 @@ public class Skill : Module
         base.Awake();
         myPlayerInfo = GetComponentInParent<Player>().myPlayerInfo;
         if (myPlayerInfo == null) return;
+    }
+
+    public void UpdateMe(SkillData data)
+    {
+        mySkillData = data;
     }
 
     public PlayerInfo GetMyPlayerInfo()
