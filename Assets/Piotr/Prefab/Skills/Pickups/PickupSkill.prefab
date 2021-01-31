@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2feeccbe4e40564384e91368bba7a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupEffect: {fileID: 4925389457823137812, guid: c60f3da3ae4d31b488ac8f442b74428b, type: 3}
 --- !u!61 &6467058186296293341
 BoxCollider2D:
   m_ObjectHideFlags: 0

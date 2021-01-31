@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerPickMeUp : Module
 {
+    public GameObject pickupEffect;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();
@@ -11,6 +13,8 @@ public class PlayerPickMeUp : Module
         SkillsPlayer skillsPlayer = player.GetComponentInChildren<SkillsPlayer>();
         PickupSkill myPickupSkill = GetComponentInParent<PickupSkill>();
         skillsPlayer.PickUpNewSkill(myPickupSkill.mySkillData);
+        Transform newPickupEffect = Instantiate(pickupEffect).transform;
+        newPickupEffect.position = transform.position;
         Destroy(myEntity.gameObject);
     }
 }
