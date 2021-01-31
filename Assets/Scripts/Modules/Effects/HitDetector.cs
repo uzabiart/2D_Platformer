@@ -9,6 +9,7 @@ public class HitDetector : Module
     public Effect[] effects;
     string savedPlayerId;
     public Collider2D myCollider;
+    public GameObject hitEffect;
 
     private void Start()
     {
@@ -43,6 +44,8 @@ public class HitDetector : Module
                 effect.PlayMyEffect();
             }
         }
+        Transform newEffect = Instantiate(hitEffect).transform;
+        newEffect.position = transform.position;
         Destroy(myEntity.gameObject);
     }
 }
