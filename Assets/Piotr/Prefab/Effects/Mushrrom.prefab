@@ -298,7 +298,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e71d8e8f8891794b8a2dc091438e2f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 7562955901990179892, guid: 68ad67d4d7eef7e45b4b9eb96c12e1f2, type: 3}
   mySprite: {fileID: 7406820984024900850}
+  shroomViewGroup:
+  - {fileID: 7406820984024900850}
+  - {fileID: 7406820984738623094}
 --- !u!1 &7406820985506880161
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,3 +392,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mySprite: {fileID: 7406820984024900850}
+  orderMod: 0

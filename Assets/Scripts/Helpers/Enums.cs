@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Enums : MonoBehaviour
 {
-    public enum Skills
+    public enum SkillType
     {
-        Q = 10,
+        Basic = 10,
+        Ulti = 20,
+        Dash = 30,
     }
 }

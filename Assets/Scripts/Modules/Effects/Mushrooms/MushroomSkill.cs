@@ -8,7 +8,7 @@ public class MushroomSkill : Skill
 
     private void Start()
     {
-        UpdateMyCooldown(5f);
+        UpdateMyCooldown(2.5f);
     }
 
     public override void UseSkill()

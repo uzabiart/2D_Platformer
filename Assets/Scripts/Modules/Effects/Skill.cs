@@ -12,6 +12,7 @@ public class Skill : Module
     {
         base.Awake();
         myPlayerInfo = GetComponentInParent<Player>().myPlayerInfo;
+        if (myPlayerInfo == null) return;
     }
 
     public PlayerInfo GetMyPlayerInfo()
