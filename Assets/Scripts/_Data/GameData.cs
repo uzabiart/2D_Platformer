@@ -58,6 +58,7 @@ public class GameData : ScriptableObject
             if (p == player)
             {
                 players.Remove(p);
+                break;
             }
         }
     }

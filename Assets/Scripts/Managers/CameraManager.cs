@@ -25,7 +25,10 @@ public class CameraManager : Entity
     private void Update()
     {
         CenterCameraOnPlayers();
-        ManageCameraDistanceView();
+        if (gameData.players.Count > 1)
+            ManageCameraDistanceView();
+        else
+            mainCamera.DOOrthoSize(minimumCameraDistance, 2f);
     }
 
     void CenterCameraOnPlayers()
