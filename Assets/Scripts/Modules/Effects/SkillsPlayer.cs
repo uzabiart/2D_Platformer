@@ -92,22 +92,22 @@ public class SkillsPlayer : MonoBehaviour
                 }
                 break;
             case Enums.SkillType.Dash:
-                if (ultiSkill == null)
+                if (dashSkill == null)
                     return false;
                 else
                 {
-                    if (ultiSkill.mySkillData == data)
+                    if (dashSkill.mySkillData == data)
                     {
                         return true;
                     }
                 }
                 break;
             case Enums.SkillType.Ulti:
-                if (dashSkill == null)
+                if (ultiSkill == null)
                     return false;
                 else
                 {
-                    if (dashSkill.mySkillData == data)
+                    if (ultiSkill.mySkillData == data)
                     {
                         return true;
                     }
