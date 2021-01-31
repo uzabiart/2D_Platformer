@@ -2,16 +2,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class MushroomBlowup : Module
 {
     string myPlayerId;
     bool safetyOff;
+    public GameObject hitEffect;
     public SpriteRenderer mySprite;
+    public SpriteRenderer[] shroomViewGroup;
 
     private void Start()
     {
         Invoke(nameof(SafetyOffDelay), 0.4f);
+        Invoke(nameof(HideShroomAfterDelay), 1f);
+    }
+
+    private void HideShroomAfterDelay()
+    {
+        foreach (SpriteRenderer sprite in shroomViewGroup)
+        {
+            sprite.DOFade(0f, 1.4f);
+        }
     }
 
     public void UpdateControllingPlayerId(string playerId)
@@ -44,6 +56,8 @@ public class MushroomBlowup : Module
         if (!safetyOff) return;
         print("-> MUSHROOM EFFECT BLOWUP");
         health.TakeDamage(10);
+        Transform hitT = Instantiate(hitEffect).transform;
+        hitT.position = transform.position;
         Destroy(myEntity.gameObject);
     }
 }

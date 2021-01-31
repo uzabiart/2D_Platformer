@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class HitDetector : Module
 {
-    public string[] lookForATag;
     public Effect[] effects;
     string savedPlayerId;
     public Collider2D myCollider;
     public GameObject hitEffect;
+    string avaiodTag = "NonObstacle";
 
     private void Start()
     {
@@ -28,7 +28,7 @@ public class HitDetector : Module
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (lookForATag.Length != 0) return;
+        if (collision.tag == avaiodTag) return;
         EffectsReceiver effectReceiver = collision.GetComponentInChildren<EffectsReceiver>();
         Player hitPlayer = collision.GetComponent<Player>();
         if (hitPlayer != null)

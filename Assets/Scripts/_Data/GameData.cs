@@ -8,6 +8,7 @@ public class GameData : ScriptableObject
 {
     public GameObjectData[] worldObjects;
     public List<PlayerInfo> players = new List<PlayerInfo>();
+    public SkillData[] availableSkills;
 
     private void OnDisable()
     {
