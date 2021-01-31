@@ -107,30 +107,8 @@
                 },
                 {
                     "name": "",
-                    "id": "eaef9f35-47e4-4733-9e68-eb4477f6f1ec",
-                    "path": "<XInputController>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "9e0af68a-4fdd-46eb-868a-97081d43546c",
                     "path": "<HID::Thrustmaster T.16000M>/stick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7de680dd-678d-40cd-ad3f-0a59360e42a2",
-                    "path": "<CustomDevice>/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
