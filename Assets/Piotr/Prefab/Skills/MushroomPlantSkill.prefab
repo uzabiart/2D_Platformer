@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7987749893527570282}
   m_Layer: 0
   m_Name: MushroomPlantSkill
-  m_TagString: Untagged
+  m_TagString: NonObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b79f1a5ce32684ebb9ea2e076d206d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mySkillData: {fileID: 0}
   mushroomPrefab: {fileID: 7406820985506880161, guid: 2d4c3fed80f8d9640bc44408e13c4f50, type: 3}

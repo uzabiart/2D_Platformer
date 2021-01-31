@@ -20,11 +20,13 @@ public class SkillsPlayer : MonoBehaviour
     private void OnEnable()
     {
         inputController.onSkillUseQ += UseBasic;
+        inputController.onSkillUltiUsed += UseUlti;
     }
 
     private void OnDisable()
     {
         inputController.onSkillUseQ -= UseBasic;
+        inputController.onSkillUltiUsed -= UseUlti;
     }
 
     private void UseBasic()
@@ -47,25 +49,69 @@ public class SkillsPlayer : MonoBehaviour
 
     public void PickUpNewSkill(SkillData skill)
     {
+        Skill newSkill = null;
         switch (skill.type)
         {
             case Enums.SkillType.Basic:
-                SwapNewSkill(skill, basicSkill);
+                if (basicSkill != null)
+                    Destroy(basicSkill.gameObject);
+                newSkill = Instantiate(skill.skillPrefab, transform).GetComponent<Skill>();
+                basicSkill = newSkill;
                 break;
             case Enums.SkillType.Dash:
-                SwapNewSkill(skill, dashSkill);
+                if (dashSkill != null)
+                    Destroy(dashSkill.gameObject);
+                newSkill = Instantiate(skill.skillPrefab, transform).GetComponent<Skill>();
+                dashSkill = newSkill;
                 break;
             case Enums.SkillType.Ulti:
-                SwapNewSkill(skill, ultiSkill);
+                if (ultiSkill != null)
+                    Destroy(ultiSkill.gameObject);
+                newSkill = Instantiate(skill.skillPrefab, transform).GetComponent<Skill>();
+                ultiSkill = newSkill;
                 break;
         }
+        newSkill.UpdateMe(skill);
     }
 
-    void SwapNewSkill(SkillData skill, Skill oldSkill)
+    public bool CheckIfAlreadyHaveThisSkill(SkillData data)
     {
-        if (oldSkill != null)
-            Destroy(oldSkill.gameObject);
-        Skill newSkill = Instantiate(skill.skillPrefab, transform).GetComponent<Skill>();
-        basicSkill = newSkill;
+        switch (data.type)
+        {
+            case Enums.SkillType.Basic:
+                if (basicSkill == null)
+                    return false;
+                else
+                {
+                    if (basicSkill.mySkillData == data)
+                    {
+                        return true;
+                    }
+                }
+                break;
+            case Enums.SkillType.Dash:
+                if (ultiSkill == null)
+                    return false;
+                else
+                {
+                    if (ultiSkill.mySkillData == data)
+                    {
+                        return true;
+                    }
+                }
+                break;
+            case Enums.SkillType.Ulti:
+                if (dashSkill == null)
+                    return false;
+                else
+                {
+                    if (dashSkill.mySkillData == data)
+                    {
+                        return true;
+                    }
+                }
+                break;
+        }
+        return false;
     }
 }

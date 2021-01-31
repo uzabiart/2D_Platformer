@@ -709,7 +709,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6558097126987532656}
         m_TargetAssemblyTypeName: InputController, Assembly-CSharp
-        m_MethodName: UseSkill
+        m_MethodName: BasicSkill
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -721,6 +721,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 29f553c2-97db-4612-9fd4-73a4e4846f29
     m_ActionName: Gameplay/Attack[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6558097126987532656}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: UltiSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 95dba12a-fe9f-4426-82b1-c298dca6a2d6
+    m_ActionName: Gameplay/UltiSkill[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
