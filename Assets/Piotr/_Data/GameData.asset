@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   worldObjects: []
-  players: []
+  players:
+  - playerId: Player#945771
+    myColor: {r: 0.14949572, g: 0.04954791, b: 0.9092449, a: 1}
+    playerSceneReference: {fileID: 0}
+    playerLogic: {fileID: 0}
+  - playerId: Player#289532
+    myColor: {r: 0.6611465, g: 0.10096717, b: 0.46844774, a: 1}
+    playerSceneReference: {fileID: 0}
+    playerLogic: {fileID: 0}
   availableSkills:
   - {fileID: 11400000, guid: 5839123984d3f4d489fef29c381298f6, type: 2}
   - {fileID: 11400000, guid: 5138145904e677d47b834ba0fac257ba, type: 2}
@@ -23,3 +31,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bcf3a2ba9b1926648b3112c5e5d1463f, type: 2}
   - {fileID: 11400000, guid: c91fa29f61944de4a8b42222a9e79739, type: 2}
   - {fileID: 11400000, guid: a9850965bfe6cbb4ab3dce5437dcf752, type: 2}
+  - {fileID: 11400000, guid: 2f6d5265e7e3d4849aaf6617df3fe549, type: 2}
