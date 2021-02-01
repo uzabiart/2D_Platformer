@@ -10,7 +10,6 @@ public class DashSkill : Skill
 
     private void Start()
     {
-        UpdateMyCooldown(2f);
         modules = GetComponentInParent<Modules>();
         movement = modules.GetComponentInChildren<Movement>();
     }

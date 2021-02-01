@@ -10,9 +10,9 @@ public class SimpleBulletCreated : Effect
         Invoke(nameof(DestroyMeAfterDelay), 3f);
     }
 
-    public override void PlayMyEffect()
+    public override void PlayMyEffect(int damage)
     {
-        GetComponentInParent<Modules>().GetComponentInChildren<Health>().TakeDamage(10);
+        GetComponentInParent<Modules>().GetComponentInChildren<Health>().TakeDamage(damage);
     }
 
     private void DestroyMeAfterDelay()

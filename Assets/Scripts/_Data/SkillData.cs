@@ -6,6 +6,8 @@ using UnityEngine;
 public class SkillData : ScriptableObject
 {
     public Sprite skillIcon;
+    public int damage;
+    public float cooldown;
     public Enums.SkillType type;
     public GameObject skillPrefab;
 }

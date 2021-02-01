@@ -10,10 +10,19 @@ public class HitDetector : Module
     public Collider2D myCollider;
     public GameObject hitEffect;
     string avaiodTag = "NonObstacle";
+    public bool dieOnImpact;
+    bool hitDisabled;
+    SkillData mySkillData;
+
+    public override void Awake()
+    {
+        base.Awake();
+        gameObject.name = myEntity.gameObject.name + "_HitDetector";
+    }
 
     private void Start()
     {
-        Invoke(nameof(EnableMyCollider), 0.1f);
+        Invoke(nameof(EnableMyCollider), 0.05f);
     }
 
     public void EnableMyCollider()
@@ -21,19 +30,26 @@ public class HitDetector : Module
         myCollider.enabled = true;
     }
 
-    public void UpdateMyInfo(string playerId)
+    public void UpdateMyInfo(string playerId, SkillData newSkillData)
     {
         savedPlayerId = playerId;
+        mySkillData = newSkillData;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        CheckHit(collision);
+    }
+
+    void CheckHit(Collider2D collision)
+    {
+        if (hitDisabled) return;
         if (collision.tag == avaiodTag) return;
         EffectsReceiver effectReceiver = collision.GetComponentInChildren<EffectsReceiver>();
-        Player hitPlayer = collision.GetComponent<Player>();
-        if (hitPlayer != null)
+        IdHolder idHolder = collision.GetComponent<IdHolder>();
+        if (idHolder != null)
         {
-            if (hitPlayer.GetMyPlayerId() == savedPlayerId)
+            if (idHolder.GetMyPlayerId() == savedPlayerId)
                 return;
         }
         if (effectReceiver != null)
@@ -41,11 +57,19 @@ public class HitDetector : Module
             myEntity.transform.SetParent(effectReceiver.transform);
             foreach (Effect effect in effects)
             {
-                effect.PlayMyEffect();
+                effect.PlayMyEffect(mySkillData.damage);
             }
         }
+        SpawnHitEffect();
+        myCollider.enabled = false;
+        hitDisabled = true;
+        if (!dieOnImpact) return;
+        Destroy(myEntity.gameObject);
+    }
+
+    void SpawnHitEffect()
+    {
         Transform newEffect = Instantiate(hitEffect).transform;
         newEffect.position = transform.position;
-        Destroy(myEntity.gameObject);
     }
 }

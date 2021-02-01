@@ -591,11 +591,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07853f924912b143b5cbfd2dc3199b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookForATag: []
   effects:
   - {fileID: 7112334926754286492}
   myCollider: {fileID: 7112334925588165941}
   hitEffect: {fileID: 5060261373767028247, guid: 97befcd7a9a1e4b428dbcd22b8c0ff61, type: 3}
+  dieOnImpact: 1
 --- !u!61 &7112334925588165941
 BoxCollider2D:
   m_ObjectHideFlags: 0

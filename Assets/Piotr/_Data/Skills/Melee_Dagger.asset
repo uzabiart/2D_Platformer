@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 002c31e5155eb4b42abd36d75c694820, type: 3}
-  m_Name: SimpleShoot
+  m_Name: Melee_Dagger
   m_EditorClassIdentifier: 
-  skillIcon: {fileID: 21300000, guid: 330293edbac5dab4fa90d53826cd5ed1, type: 3}
-  damage: 10
-  cooldown: 0.5
+  skillIcon: {fileID: 21300000, guid: 181e77750a287974687b2bd66b0ef3de, type: 3}
+  damage: 6
+  cooldown: 0.7
   type: 10
-  skillPrefab: {fileID: 1024697752531497240, guid: 5e053d00bccb8dd40b1b69ef57e1aa0a, type: 3}
+  skillPrefab: {fileID: 7014711657182528408, guid: 715d4e1f75a03b54781ca7741bf540c6, type: 3}

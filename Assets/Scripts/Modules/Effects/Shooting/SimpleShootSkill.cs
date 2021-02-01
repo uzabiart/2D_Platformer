@@ -6,15 +6,10 @@ public class SimpleShootSkill : Skill
 {
     public GameObject bulletPrefab;
 
-    private void Start()
-    {
-        UpdateMyCooldown(0.5f);
-    }
-
     public override void UseSkill()
     {
         Transform newBullet = Instantiate(bulletPrefab).transform;
-        newBullet.GetComponentInChildren<HitDetector>().UpdateMyInfo(GetMyPlayerInfo().playerId);
+        newBullet.GetComponentInChildren<HitDetector>().UpdateMyInfo(GetMyPlayerInfo().playerId, mySkillData);
         newBullet.position = myEntity.transform.position;
         Rigidbody2D rigi = newBullet.GetComponent<Rigidbody2D>();
 

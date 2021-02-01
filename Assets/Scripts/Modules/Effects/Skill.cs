@@ -12,13 +12,16 @@ public class Skill : Module
     public override void Awake()
     {
         base.Awake();
-        myPlayerInfo = GetComponentInParent<Player>().myPlayerInfo;
-        if (myPlayerInfo == null) return;
+        UpdateMyCooldown(mySkillData.cooldown);
+        Player player = GetComponentInParent<Player>();
+        if (player == null) return;
+        myPlayerInfo = player.myPlayerInfo;
     }
 
     public void UpdateMe(SkillData data)
     {
         mySkillData = data;
+        UpdateMyCooldown(data.cooldown);
     }
 
     public PlayerInfo GetMyPlayerInfo()

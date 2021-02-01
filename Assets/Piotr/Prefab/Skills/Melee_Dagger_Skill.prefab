@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6494730647739716514
+--- !u!1 &7014711657182528408
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3510885023327371397}
-  - component: {fileID: 7987749893527570282}
+  - component: {fileID: 7014711657182528411}
+  - component: {fileID: 7014711657182528410}
   m_Layer: 0
-  m_Name: MushroomPlantSkill
-  m_TagString: NonObstacle
+  m_Name: Melee_Dagger_Skill
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3510885023327371397
+--- !u!4 &7014711657182528411
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6494730647739716514}
+  m_GameObject: {fileID: 7014711657182528408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,17 +31,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7987749893527570282
+--- !u!114 &7014711657182528410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6494730647739716514}
+  m_GameObject: {fileID: 7014711657182528408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85b79f1a5ce32684ebb9ea2e076d206d, type: 3}
+  m_Script: {fileID: 11500000, guid: d06aae41c2a8c074faa7987d2bc00f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySkillData: {fileID: 11400000, guid: 5138145904e677d47b834ba0fac257ba, type: 2}
-  mushroomPrefab: {fileID: 7406820985506880161, guid: 2d4c3fed80f8d9640bc44408e13c4f50, type: 3}
+  mySkillData: {fileID: 11400000, guid: a26f769e803d02043851a7d88c51f2e4, type: 2}
+  daggerSlashPrefab: {fileID: 4655103043483863625, guid: 67b61d27f0f7dad4b8dbab0f0d9dcd45, type: 3}

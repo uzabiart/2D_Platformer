@@ -8,6 +8,7 @@ public class MushroomBlowup : Module
 {
     string myPlayerId;
     bool safetyOff;
+    int myDamage;
     public GameObject hitEffect;
     public SpriteRenderer mySprite;
     public SpriteRenderer[] shroomViewGroup;
@@ -36,26 +37,26 @@ public class MushroomBlowup : Module
         safetyOff = true;
     }
 
-    public void UpdateMyColor(Color newColor)
+    public void UpdateMe(int damage)
     {
-        //mySprite.color = newColor;
+        myDamage = damage;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Player collidedPlayer = collision.GetComponent<Player>();
-        if (collidedPlayer != null)
+        IdHolder idHolder = collision.GetComponent<IdHolder>();
+        if (idHolder != null)
         {
-            if (collidedPlayer.GetMyPlayerId() == myPlayerId) return;
-            BlowUp(collidedPlayer.GetComponentInChildren<Health>());
+            if (idHolder.GetMyPlayerId() == myPlayerId) return;
+            BlowUp(idHolder.GetComponentInChildren<Health>());
         }
     }
 
     private void BlowUp(Health health)
     {
         if (!safetyOff) return;
-        print("-> MUSHROOM EFFECT BLOWUP");
-        health.TakeDamage(10);
+        if (health != null)
+            health.TakeDamage(myDamage);
         Transform hitT = Instantiate(hitEffect).transform;
         hitT.position = transform.position;
         Destroy(myEntity.gameObject);

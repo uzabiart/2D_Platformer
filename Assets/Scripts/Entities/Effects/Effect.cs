@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Effect : Entity
 {
-    public virtual void PlayMyEffect()
+    public virtual void PlayMyEffect(int damage)
     {
     }
 }
