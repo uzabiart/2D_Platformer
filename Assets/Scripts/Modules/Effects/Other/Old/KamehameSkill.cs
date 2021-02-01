@@ -59,7 +59,7 @@ public class KamehameSkill : Skill
     private void SteerKamehame(Vector3 input)
     {
         if (newKamehame == null || !canSteerKamehame) return;
-        newKamehame.Rotate(new Vector3(0, 0, input.x * 0.02f));
+        newKamehame.Rotate(new Vector3(0, 0, input.x * 0.06f));
     }
 
     private IEnumerator KamehameSequence()

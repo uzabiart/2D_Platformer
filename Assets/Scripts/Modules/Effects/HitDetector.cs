@@ -48,7 +48,6 @@ public class HitDetector : Module
 
     void CheckHitAll(Collider2D collision)
     {
-        print("I HIT: " + collision.gameObject.name);
         if (collision.tag == avaiodTag) return;
         EffectsReceiver effectReceiver = collision.GetComponentInChildren<EffectsReceiver>();
         IdHolder idHolder = collision.GetComponent<IdHolder>();

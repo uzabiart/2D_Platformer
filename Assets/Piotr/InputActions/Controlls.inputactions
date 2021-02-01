@@ -195,17 +195,6 @@
                 },
                 {
                     "name": "",
-                    "id": "8b5ab967-e742-4892-81e5-dadbf69e8bf9",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "Press(behavior=2)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SkillQ",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "de076150-db76-4aa9-a140-9176bd6f8fe9",
                     "path": "<HID::Thrustmaster T.16000M>/trigger",
                     "interactions": "Press(behavior=2)",
@@ -239,17 +228,6 @@
                 },
                 {
                     "name": "",
-                    "id": "781c3740-ea64-4b46-86e4-485ff215eddf",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "Press(behavior=2)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "UltiSkill",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ccdb96ff-4610-4400-96f2-da5b4f36ecfb",
                     "path": "<HID::Thrustmaster T.16000M>/button2",
                     "interactions": "Press(behavior=2)",
@@ -274,17 +252,6 @@
                     "name": "",
                     "id": "f5ca262f-8501-4c26-9a0a-275fe1e0874f",
                     "path": "<XInputController>/buttonEast",
-                    "interactions": "Press(behavior=2)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0d78f3ed-089d-4263-ad43-99e161094b96",
-                    "path": "<Gamepad>/buttonWest",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",

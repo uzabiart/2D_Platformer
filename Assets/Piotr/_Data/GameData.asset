@@ -14,12 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldObjects: []
   players:
-  - playerId: Player#945771
-    myColor: {r: 0.14949572, g: 0.04954791, b: 0.9092449, a: 1}
-    playerSceneReference: {fileID: 0}
-    playerLogic: {fileID: 0}
-  - playerId: Player#289532
-    myColor: {r: 0.6611465, g: 0.10096717, b: 0.46844774, a: 1}
+  - playerId: Player#447712
+    myColor: {r: 0.9459015, g: 0.4307602, b: 0.43364197, a: 1}
     playerSceneReference: {fileID: 0}
     playerLogic: {fileID: 0}
   availableSkills:
@@ -29,6 +25,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a26f769e803d02043851a7d88c51f2e4, type: 2}
   - {fileID: 11400000, guid: 6eece28555a37654281f091536091361, type: 2}
   - {fileID: 11400000, guid: bcf3a2ba9b1926648b3112c5e5d1463f, type: 2}
-  - {fileID: 11400000, guid: c91fa29f61944de4a8b42222a9e79739, type: 2}
-  - {fileID: 11400000, guid: a9850965bfe6cbb4ab3dce5437dcf752, type: 2}
   - {fileID: 11400000, guid: 2f6d5265e7e3d4849aaf6617df3fe549, type: 2}
+  - {fileID: 11400000, guid: a9850965bfe6cbb4ab3dce5437dcf752, type: 2}

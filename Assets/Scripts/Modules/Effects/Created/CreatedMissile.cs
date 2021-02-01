@@ -29,7 +29,7 @@ public class CreatedMissile : Effect
     private IEnumerator MissileSequences()
     {
         yield return new WaitForSeconds(0.2f);
-        randomizedDirection = UnityEngine.Random.Range(-4.5f, 4.5f);
+        randomizedDirection = UnityEngine.Random.Range(-5f, 5f);
         StartCoroutine(MissileSequences());
     }
 
