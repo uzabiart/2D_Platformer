@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 002c31e5155eb4b42abd36d75c694820, type: 3}
-  m_Name: RandomMissiles
+  m_Name: BigShoot
   m_EditorClassIdentifier: 
-  skillIcon: {fileID: 21300000, guid: 2b79319c0a2fe8b41822816700cd18f4, type: 3}
-  damage: 8
-  cooldown: 2
+  skillIcon: {fileID: 21300000, guid: ade497ba8a56ba44fb797a692b472c1e, type: 3}
+  damage: 15
+  cooldown: 1
   type: 10
-  skillPrefab: {fileID: 6642421106152189568, guid: 29f72ebf4872713458743fad87f1df62, type: 3}
+  skillPrefab: {fileID: 6221313565221455477, guid: 938aa512469aaee45a67ed71e5ab992e, type: 3}

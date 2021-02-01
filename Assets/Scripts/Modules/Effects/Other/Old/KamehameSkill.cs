@@ -59,16 +59,20 @@ public class KamehameSkill : Skill
     private void SteerKamehame(Vector3 input)
     {
         if (newKamehame == null || !canSteerKamehame) return;
-        newKamehame.Rotate(new Vector3(0, 0, input.x * 0.06f));
+        float rotationSpeed = 0f;
+        if (input.x > 0)
+            rotationSpeed = -1;
+        else if (input.x < 0)
+            rotationSpeed = 1f;
+        newKamehame.Rotate(new Vector3(0, 0, rotationSpeed * 0.05f));
     }
 
     private IEnumerator KamehameSequence()
     {
-        yield return new WaitForSeconds(3.5f);
-        canSteerKamehame = false;
         yield return new WaitForSeconds(2f);
+        canSteerKamehame = false;
         myMovement.ResetSpeed();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6f);
         Destroy(newKamehame.gameObject);
     }
 }

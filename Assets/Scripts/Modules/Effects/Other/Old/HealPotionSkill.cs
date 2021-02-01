@@ -9,9 +9,9 @@ public class HealPotionSkill : Skill
     public GameObject healingBar;
     public Image healingFillBar;
 
-    float timeNeededToHeal = 2f;
+    float timeNeededToHeal = 7f;
     int healAmount = 10;
-    float percentageHealing = 0.2f;
+    float percentageHealing = 0.3f;
 
     Modules modules;
     Health myHealth;

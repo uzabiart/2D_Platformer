@@ -24,7 +24,7 @@ public class HitDetector : Module
 
     private void Start()
     {
-        Invoke(nameof(EnableMyCollider), 0.05f);
+        Invoke(nameof(EnableMyCollider), 0.1f);
     }
 
     public void EnableMyCollider()

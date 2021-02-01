@@ -83,9 +83,13 @@ public class Skill : Module
         cooldownLeft -= (cooldown * cdMod);
         currentCooldown = cooldown - (cooldown * cdMod);
 
-        //if (cooldown < 3)
+        //if (cooldown <= 1)
         //{
-        //    currentCooldown = 0.1f;
+        //    currentCooldown = 0.2f;
+        //}
+        //else if (cooldown <= 2)
+        //{
+        //    currentCooldown = 0.5f;
         //}
 
         Invoke(nameof(ResetCooldowns), time);

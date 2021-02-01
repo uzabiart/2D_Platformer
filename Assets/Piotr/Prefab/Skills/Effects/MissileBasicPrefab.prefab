@@ -170,7 +170,7 @@ TrailRenderer:
   m_SortingLayerID: -1605799977
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Time: 0.5
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.18
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 2798538963634767418}
   - component: {fileID: 1834493711592634254}
   m_Layer: 0
-  m_Name: MissilePrefab
+  m_Name: MissileBasicPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

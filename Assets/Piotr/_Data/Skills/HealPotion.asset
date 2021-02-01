@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 21300000, guid: 16cc23ac7b543ab40aa749288405d0a2, type: 3}
   damage: 0
-  cooldown: 7
+  cooldown: 30
   type: 20
   skillPrefab: {fileID: 1098595432280049389, guid: 0b9c9e1b22b56b24bb5ae7a6be26f6b4, type: 3}

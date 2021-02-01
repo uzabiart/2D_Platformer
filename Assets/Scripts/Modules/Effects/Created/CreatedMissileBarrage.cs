@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreatedMissile : Effect
+public class CreatedMissileBarrage : Effect
 {
     public Rigidbody2D rigi;
     float randomizedDirection;
@@ -28,7 +27,7 @@ public class CreatedMissile : Effect
 
     private IEnumerator MissileSequences()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         randomizedDirection = UnityEngine.Random.Range(-3f, 3f);
         StartCoroutine(MissileSequences());
     }
