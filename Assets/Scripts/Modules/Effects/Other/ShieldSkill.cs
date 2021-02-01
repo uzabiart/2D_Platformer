@@ -11,6 +11,9 @@ public class ShieldSkill : Skill
 
     public override void UseSkill()
     {
+        if (createdShield != null)
+            DestroyShield();
+
         createdShield = Instantiate(shieldPrefab, transform).transform;
         createdShield.localPosition = Vector3.zero;
         createdShield.GetComponent<ShieldEffect>().UpdateMe(shieldDisableTime);

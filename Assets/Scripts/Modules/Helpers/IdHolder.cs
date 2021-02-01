@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class IdHolder : MonoBehaviour
 {
-    string thisObjectId;
+    public string thisObjectId;
 
     private void Awake()
     {
@@ -19,5 +20,10 @@ public class IdHolder : MonoBehaviour
     public string GetMyPlayerId()
     {
         return thisObjectId;
+    }
+
+    public void UpdateMyInfo(string playerId)
+    {
+        thisObjectId = playerId;
     }
 }
