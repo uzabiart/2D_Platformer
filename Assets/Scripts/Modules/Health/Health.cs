@@ -25,6 +25,13 @@ public class Health : Module, IHealth
         UpdateInfo();
     }
 
+    public void TakePercentageHealing(float percentageHealing)
+    {
+        health.currentHealth += (int)(health.maxHealth * percentageHealing);
+        //health.currentHealth += healing;
+        UpdateInfo();
+    }
+
     public void UpdateInfo()
     {
         fillBar.fillAmount = (float)health.currentHealth / (float)health.maxHealth;

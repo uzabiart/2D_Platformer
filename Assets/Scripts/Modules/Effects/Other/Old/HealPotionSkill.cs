@@ -11,6 +11,7 @@ public class HealPotionSkill : Skill
 
     float timeNeededToHeal = 2f;
     int healAmount = 10;
+    float percentageHealing = 0.2f;
 
     Modules modules;
     Health myHealth;
@@ -48,7 +49,7 @@ public class HealPotionSkill : Skill
     public void ApplyHealing()
     {
         healed = true;
-        myHealth.TakeHealing(healAmount);
+        myHealth.TakePercentageHealing(percentageHealing);
         healingBar.SetActive(false);
         myMovement.ResetSpeed();
     }
