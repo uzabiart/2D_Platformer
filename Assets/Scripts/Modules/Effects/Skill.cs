@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +9,11 @@ public class Skill : Module
     public SkillData mySkillData;
     protected bool isCd;
     protected float cooldown = 5f;
-    float cooldownLeft;
-    float currentCooldown;
+    protected float cooldownLeft;
+    protected float currentCooldown;
+
+    bool pressing;
+    bool skipDoubleClick;
 
     public override void Awake()
     {
@@ -39,14 +43,28 @@ public class Skill : Module
 
     public void useSkillIfAble()
     {
+        if (skipDoubleClick) { skipDoubleClick = false; return; }
+        skipDoubleClick = true;
+        if (pressing) { StopUsingSkill(); pressing = false; }
+        else { pressing = true; }
         if (isCd) return;
         isCd = true;
         UseSkill();
         StartCoroutine(CdOff(currentCooldown));
+        StartCoroutine(PressingStart());
     }
 
     public virtual void UseSkill()
     {
+    }
+
+    public virtual void StopUsingSkill()
+    {
+    }
+
+    private IEnumerator PressingStart()
+    {
+        yield return new WaitForSeconds(0.1f);
     }
 
     protected IEnumerator CdOff(float cdTime)

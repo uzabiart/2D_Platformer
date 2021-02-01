@@ -6,9 +6,11 @@ using UnityEngine;
 public class Movement : Module
 {
     public float speed;
-    float currentSpeed;
+    [HideInInspector]
+    public float currentSpeed;
     public Animator animator;
     Vector3 movingVector;
+    public Action<Vector3> onMove;
 
     private void Start()
     {
@@ -25,6 +27,7 @@ public class Movement : Module
 
     public void Move(Vector3 input)
     {
+        onMove?.Invoke(input);
         movingVector = input;
         if (input.x < 0)
         {
@@ -49,7 +52,12 @@ public class Movement : Module
         Invoke(nameof(ResetSpeed), time);
     }
 
-    private void ResetSpeed()
+    public void ChangeCurrentSpeed(float speedMod)
+    {
+        currentSpeed *= speedMod;
+    }
+
+    public void ResetSpeed()
     {
         currentSpeed = speed;
     }

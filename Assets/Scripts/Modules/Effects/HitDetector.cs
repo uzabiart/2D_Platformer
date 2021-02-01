@@ -11,12 +11,14 @@ public class HitDetector : Module
     public GameObject hitEffect;
     string avaiodTag = "NonObstacle";
     public bool dieOnImpact;
+    public bool doIHitAll;
     bool hitDisabled;
     SkillData mySkillData;
 
     public override void Awake()
     {
         base.Awake();
+        if (myEntity == null) return;
         gameObject.name = myEntity.gameObject.name + "_HitDetector";
     }
 
@@ -38,7 +40,39 @@ public class HitDetector : Module
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CheckHit(collision);
+        if (!doIHitAll)
+            CheckHit(collision);
+        else
+            CheckHitAll(collision);
+    }
+
+    void CheckHitAll(Collider2D collision)
+    {
+        print("I HIT: " + collision.gameObject.name);
+        if (collision.tag == avaiodTag) return;
+        EffectsReceiver effectReceiver = collision.GetComponentInChildren<EffectsReceiver>();
+        IdHolder idHolder = collision.GetComponent<IdHolder>();
+        if (idHolder != null)
+        {
+            if (idHolder.GetMyPlayerId() == savedPlayerId)
+                return;
+        }
+        if (effectReceiver != null)
+        {
+            foreach (Effect effect in effects)
+            {
+                effect.UpdateMyTarget(effectReceiver);
+                effect.PlayMyEffect(mySkillData.damage);
+            }
+        }
+        if (effectReceiver != null)
+        {
+            SpawnHitEffectOnTarget(effectReceiver.transform);
+        }
+        else
+        {
+            SpawnHitEffectOnTarget(collision.transform);
+        }
     }
 
     void CheckHit(Collider2D collision)
@@ -71,5 +105,11 @@ public class HitDetector : Module
     {
         Transform newEffect = Instantiate(hitEffect).transform;
         newEffect.position = transform.position;
+    }
+
+    void SpawnHitEffectOnTarget(Transform receiver)
+    {
+        Transform newEffect = Instantiate(hitEffect).transform;
+        newEffect.position = receiver.transform.position;
     }
 }
