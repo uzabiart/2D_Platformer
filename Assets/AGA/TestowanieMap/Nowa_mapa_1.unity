@@ -1023,7 +1023,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1689215827, guid: 4249720f2bbe8ce4a8096048bad91994, type: 3}
       propertyPath: howMuchSkills
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6156302755745322224, guid: 4249720f2bbe8ce4a8096048bad91994, type: 3}
       propertyPath: m_Name
