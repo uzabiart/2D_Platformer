@@ -76,8 +76,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health:
-    maxHealth: 60
-    currentHealth: 60
+    maxHealth: 30
+    currentHealth: 30
   fillBar: {fileID: 8429573791600898578}
 --- !u!1 &1052997356510447529
 GameObject:
@@ -976,6 +976,7 @@ MonoBehaviour:
   myView: {fileID: 6558097127956532014}
   myPlayerInfo:
     playerId: 
+    playerLifes: 0
     myColor: {r: 0, g: 0, b: 0, a: 0}
     playerSceneReference: {fileID: 0}
     playerLogic: {fileID: 0}
