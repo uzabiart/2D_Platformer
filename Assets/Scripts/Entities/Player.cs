@@ -9,6 +9,16 @@ public class Player : MapObject
     public SpriteRenderer myView;
     public PlayerInfo myPlayerInfo;
 
+    private void OnEnable()
+    {
+        GameplayEventsProvider.onPlayerDied += ManagePlayerDed;
+    }
+
+    private void OnDisable()
+    {
+        GameplayEventsProvider.onPlayerDied += ManagePlayerDed;
+    }
+
     public void UpdateMyInfo(PlayerInfo playerInfo)
     {
         playerInfo.myColor = new Color(GetRandomFloat(), GetRandomFloat(), GetRandomFloat(), 1f);
@@ -29,13 +39,16 @@ public class Player : MapObject
         return UnityEngine.Random.Range(0f, 1f);
     }
 
-    public void ManagePlayerDed()
+    public void ManagePlayerDed(PlayerInfo info)
     {
+        if (info.playerId != myPlayerInfo.playerId) return;
+
         GetComponentInChildren<Movement>().ChangeCurrentSpeed(0f);
         Transform inputTransform = GetComponentInChildren<InputController>().transform;
         inputTransform.SetParent(transform);
         inputTransform.SetAsLastSibling();
         Destroy(transform.GetChild(0).gameObject);
+        if (info.playerLifes <= 0) return;
         Invoke(nameof(DestroyPlayerAfterDelay), 5f);
     }
 

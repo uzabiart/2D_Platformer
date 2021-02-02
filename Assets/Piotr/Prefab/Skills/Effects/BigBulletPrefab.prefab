@@ -594,7 +594,7 @@ MonoBehaviour:
   effects:
   - {fileID: 7112334926754286492}
   myCollider: {fileID: 7112334925588165941}
-  hitEffect: {fileID: 5060261373767028247, guid: 97befcd7a9a1e4b428dbcd22b8c0ff61, type: 3}
+  hitEffect: {fileID: 5060261373767028247, guid: 4363148b3c0cf1f42927a6c0ef3f6ef0, type: 3}
   dieOnImpact: 1
   doIHitAll: 0
 --- !u!61 &7112334925588165941

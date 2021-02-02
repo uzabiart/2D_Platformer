@@ -9,16 +9,20 @@ public class GameData : ScriptableObject
 {
     public GameObjectData[] worldObjects;
     public List<PlayerInfo> players = new List<PlayerInfo>();
+    public List<PlayerInfo> savedPlayers = new List<PlayerInfo>();
     public SkillData[] availableSkills;
+    public PlayerInfo deadPlayer;
 
     private void OnDisable()
     {
         players.Clear();
+        deadPlayer.playerId = "";
     }
 
     private void OnEnable()
     {
         players.Clear();
+        deadPlayer.playerId = "";
     }
 
     public void AddPlayer(PlayerInput player)
@@ -26,9 +30,21 @@ public class GameData : ScriptableObject
         PlayerInfo newPlayer = new PlayerInfo()
         {
             playerId = "Player#" + UnityEngine.Random.Range(0, 999999).ToString(),
+            playerLifes = 3,
             playerSceneReference = player.GetComponentInParent<Entity>().transform,
             playerLogic = player.GetComponentInParent<Player>(),
         };
+
+        Debug.Log(newPlayer.playerId);
+
+        if (deadPlayer.playerId != "")
+        {
+            newPlayer.playerId = deadPlayer.playerId;
+            newPlayer.playerLifes = deadPlayer.playerLifes;
+        }
+
+        Debug.Log(newPlayer.playerId);
+
         players.Add(newPlayer);
         GameplayEventsProvider.onPlayerJoined?.Invoke(newPlayer);
         newPlayer.playerLogic.UpdateMyInfo(newPlayer);
@@ -60,7 +76,9 @@ public class GameData : ScriptableObject
         {
             if (p == player)
             {
+                deadPlayer = player;
                 players.Remove(p);
+                player.playerLifes--;
                 GameplayEventsProvider.onPlayerDied?.Invoke(player);
                 break;
             }
@@ -81,6 +99,7 @@ public class GameData : ScriptableObject
 public class PlayerInfo
 {
     public string playerId;
+    public int playerLifes;
     public Color myColor;
     public Transform playerSceneReference;
     public Player playerLogic;

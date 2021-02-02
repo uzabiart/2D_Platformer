@@ -17,7 +17,7 @@ public class BigShotSkill : Skill
         Vector2 direction = transform.position - Vector3.zero;
         Vector3 slightlyRandomPosition = Vector3.zero;
         if (opponentTransform != null)
-            slightlyRandomPosition = new Vector3(opponentTransform.playerSceneReference.position.x + Random.Range(0f, 0f), opponentTransform.playerSceneReference.position.y + Random.Range(0f, 0f), 1f);
+            slightlyRandomPosition = new Vector3(opponentTransform.playerSceneReference.position.x + Random.Range(-1f, 1f), opponentTransform.playerSceneReference.position.y + Random.Range(-1f, 1f), 1f);
 
         direction = transform.position - slightlyRandomPosition;
 

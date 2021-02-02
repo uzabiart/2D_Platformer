@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MissileBarrage
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 21300000, guid: 2b79319c0a2fe8b41822816700cd18f4, type: 3}
-  damage: 5
+  damage: 10
   cooldown: 10
   type: 20
   skillPrefab: {fileID: 6918612927118800154, guid: 51ee79feaa6e5fa49abdbf9a0db60399, type: 3}

@@ -39,7 +39,6 @@ public class Health : Module, IHealth
         if (health.currentHealth <= 0)
         {
             gameContext.gameData.PlayerDead(myEntity.GetComponent<Player>().myPlayerInfo);
-            GetComponentInParent<Player>().ManagePlayerDed();
         }
     }
 }
