@@ -357,8 +357,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -134.60162, y: -27.400002}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -122.51, y: -27.400002}
+  m_SizeDelta: {x: 124.19046, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5270140180822016339
 CanvasRenderer:
@@ -1073,6 +1073,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6313e5324df63a7478d7dd2d17fe44a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorePanels:
+  - {fileID: 3270494537346395105}
+  - {fileID: 839145167999773048}
 --- !u!1 &3217942002224031221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,6 +1208,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  holdedPlayerData: {fileID: 0}
+  killsAmount: {fileID: 2672680361042899602}
+  deathsAmount: {fileID: 4377084178140860717}
 --- !u!114 &5531408955099123534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1501,21 +1507,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players:
-  - playerInfo:
-      playerId: 
-      playerLifes: 0
-      playerScore: 0
-      myColor: {r: 0, g: 0, b: 0, a: 0}
-      playerSceneReference: {fileID: 0}
-      playerLogic: {fileID: 0}
+  - playerInfo: {fileID: 0}
     roundLifes: {fileID: 6259130917310964261}
-  - playerInfo:
-      playerId: 
-      playerLifes: 0
-      playerScore: 0
-      myColor: {r: 0, g: 0, b: 0, a: 0}
-      playerSceneReference: {fileID: 0}
-      playerLogic: {fileID: 0}
+  - playerInfo: {fileID: 0}
     roundLifes: {fileID: 1397975414551771268}
   roundWinnerPanel: {fileID: 2006224240147122525}
   gameWinnerPanel: {fileID: 3217942002224031221}
@@ -2251,6 +2245,9 @@ MonoBehaviour:
   - {fileID: 4357071131169457836}
   - {fileID: 4493390098884809097}
   - {fileID: 4456119725453224242}
+  holdedPlayerData: {fileID: 0}
+  killsAmount: {fileID: 0}
+  deathsAmount: {fileID: 0}
 --- !u!114 &228370177095974217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2566,8 +2563,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 140, y: -27.400002}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 124.44, y: -27.400002}
+  m_SizeDelta: {x: 119.12041, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &699003015784708595
 CanvasRenderer:
@@ -2604,7 +2601,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 80
-    m_Alignment: 3
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2969,6 +2966,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  holdedPlayerData: {fileID: 0}
+  killsAmount: {fileID: 2238233496852365120}
+  deathsAmount: {fileID: 6790667239315717700}
 --- !u!114 &1442810683148394910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3378,6 +3378,9 @@ MonoBehaviour:
   - {fileID: 6122511141460696720}
   - {fileID: 3839442973035572238}
   - {fileID: 3989128390356799}
+  holdedPlayerData: {fileID: 0}
+  killsAmount: {fileID: 0}
+  deathsAmount: {fileID: 0}
 --- !u!114 &4227608383584922376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3439,8 +3442,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 257.7, y: -27.4}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 229.50003, y: -27.4}
+  m_SizeDelta: {x: 90.99962, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5449091686818532937
 CanvasRenderer:
@@ -3477,7 +3480,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 80
-    m_Alignment: 3
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

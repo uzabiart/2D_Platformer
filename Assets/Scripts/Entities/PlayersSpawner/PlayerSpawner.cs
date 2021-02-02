@@ -35,7 +35,7 @@ public class PlayerSpawner : Entity
         }
     }
 
-    public void SetupPlayerSpawnPoint(PlayerInfo player)
+    public void SetupPlayerSpawnPoint(PlayerData player)
     {
         int choosedSpawn = UnityEngine.Random.Range(0, playerSpawnPoints.Count);
         player.playerSceneReference.position = playerSpawnPoints[choosedSpawn].position;
@@ -46,7 +46,7 @@ public class PlayerSpawner : Entity
         SetupSpawnPoints();
     }
 
-    public void OnPlayerDied(PlayerInfo player)
+    public void OnPlayerDied(PlayerData player)
     {
         playersCount--;
     }

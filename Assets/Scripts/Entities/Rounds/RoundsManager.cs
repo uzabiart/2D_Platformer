@@ -22,7 +22,7 @@ public class RoundsManager : MonoBehaviour
         GameplayEventsProvider.onPlayerDied -= RemovePlayer;
     }
 
-    private void SetupPlayer(PlayerInfo player)
+    private void SetupPlayer(PlayerData player)
     {
         foreach (PlayerRound p in players)
         {
@@ -36,7 +36,7 @@ public class RoundsManager : MonoBehaviour
         }
     }
 
-    void RemovePlayer(PlayerInfo player)
+    void RemovePlayer(PlayerData player)
     {
         foreach (PlayerRound p in players)
         {
@@ -51,7 +51,7 @@ public class RoundsManager : MonoBehaviour
         ShowRoundWinner(player);
     }
 
-    void ShowRoundWinner(PlayerInfo info)
+    void ShowRoundWinner(PlayerData info)
     {
         if (info.playerLifes == 0)
             gameWinnerPanel.SetActive(true);
@@ -70,6 +70,6 @@ public class RoundsManager : MonoBehaviour
 [System.Serializable]
 public class PlayerRound
 {
-    public PlayerInfo playerInfo;
+    public PlayerData playerInfo;
     public PlayerRoundLifes roundLifes;
 }

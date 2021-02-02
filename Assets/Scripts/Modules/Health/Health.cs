@@ -38,8 +38,14 @@ public class Health : Module, IHealth
         fillBar.fillAmount = (float)health.currentHealth / (float)health.maxHealth;
         if (health.currentHealth <= 0)
         {
-            gameContext.gameData.PlayerDead(myEntity.GetComponent<Player>().myPlayerInfo);
-            GetComponentInParent<Player>().ManagePlayerDed();
+            Player getplayer = GetComponentInParent<Player>();
+            if (getplayer != null)
+            {
+                gameContext.gameData.PlayerDead(getplayer.myPlayerData);
+                GetComponentInParent<Player>().ManagePlayerDed();
+            }
+            else
+                Destroy(myEntity.gameObject);
         }
     }
 }

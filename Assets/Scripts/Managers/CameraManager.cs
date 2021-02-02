@@ -35,7 +35,7 @@ public class CameraManager : Entity
     {
         if (gameData.players.Count == 0) return;
         playerPositions = Vector2.zero;
-        foreach (PlayerInfo player in gameData.players)
+        foreach (PlayerData player in gameData.players)
         {
             playerPositions += player.playerSceneReference.position;
         }

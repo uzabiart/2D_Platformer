@@ -13,7 +13,7 @@ public class BigShotSkill : Skill
         newBullet.position = myEntity.transform.position;
         Rigidbody2D rigi = newBullet.GetComponent<Rigidbody2D>();
 
-        PlayerInfo opponentTransform = gameData.GetMyOpponentInfo(GetMyPlayerInfo().playerId);
+        PlayerData opponentTransform = gameData.GetMyOpponentInfo(GetMyPlayerInfo().playerId);
 
         Vector3 direction = transform.position - Vector3.zero;
         if (gameData.players.Count > 1)

@@ -29,7 +29,7 @@ public class RandomMissilesSkill : Skill
         newBullet.position = myEntity.transform.position;
         Rigidbody2D rigi = newBullet.GetComponent<Rigidbody2D>();
 
-        PlayerInfo opponentTransform = gameData.GetMyOpponentInfo(GetMyPlayerInfo().playerId);
+        PlayerData opponentTransform = gameData.GetMyOpponentInfo(GetMyPlayerInfo().playerId);
         Vector2 direction = transform.position - Vector3.zero;
         Vector3 slightlyRandomPosition = Vector3.zero;
         if (opponentTransform != null)

@@ -7,17 +7,17 @@ public class Player : MapObject
 {
     public GameObjectData playerData;
     public SpriteRenderer myView;
-    public PlayerInfo myPlayerInfo;
+    public PlayerData myPlayerData;
 
-    public void UpdateMyInfo(PlayerInfo playerInfo)
+    public void UpdateMyInfo(PlayerData playerData)
     {
-        playerInfo.myColor = new Color(GetRandomFloat(), GetRandomFloat(), GetRandomFloat(), 1f);
-        myPlayerInfo = playerInfo;
+        playerData.myColor = new Color(GetRandomFloat(), GetRandomFloat(), GetRandomFloat(), 1f);
+        myPlayerData = playerData;
     }
 
     public string GetMyPlayerId()
     {
-        return myPlayerInfo.playerId;
+        return myPlayerData.playerId;
     }
 
     private void SetupMyColor()
@@ -36,7 +36,7 @@ public class Player : MapObject
         inputTransform.SetParent(transform);
         inputTransform.SetAsLastSibling();
         Destroy(transform.GetChild(0).gameObject);
-        if (myPlayerInfo.playerLifes == 0) return;
+        if (myPlayerData.playerLifes == 0) return;
         Invoke(nameof(DestroyPlayerAfterDelay), 5f);
     }
 

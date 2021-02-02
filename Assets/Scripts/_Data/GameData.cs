@@ -8,48 +8,51 @@ using UnityEngine.InputSystem;
 public class GameData : ScriptableObject
 {
     public GameObjectData[] worldObjects;
-    public List<PlayerInfo> players = new List<PlayerInfo>();
-    public List<PlayerInfo> savedPlayers = new List<PlayerInfo>();
+    public PlayerData[] availablePlayers;
+    public List<PlayerData> players = new List<PlayerData>();
     public SkillData[] availableSkills;
-    public PlayerInfo deadPlayer;
+    public PlayerData deadPlayer;
 
     private void OnDisable()
     {
         players.Clear();
-        deadPlayer.playerId = "";
+        deadPlayer = null;
     }
 
     private void OnEnable()
     {
         players.Clear();
-        deadPlayer.playerId = "";
+        deadPlayer = null;
     }
 
     public void AddPlayer(PlayerInput player)
     {
-        PlayerInfo newPlayer = new PlayerInfo()
-        {
-            playerId = "Player#" + UnityEngine.Random.Range(0, 999999).ToString(),
-            playerLifes = 3,
-            playerSceneReference = player.GetComponentInParent<Entity>().transform,
-            playerLogic = player.GetComponentInParent<Player>(),
-        };
+        PlayerData newPlayer = null;
 
-        if (deadPlayer.playerId != "")
+        if (deadPlayer != null)
         {
-            newPlayer.playerId = deadPlayer.playerId;
-            newPlayer.playerLifes = deadPlayer.playerLifes;
-            newPlayer.playerScore = deadPlayer.playerScore;
+            newPlayer = deadPlayer;
+            newPlayer.playerSceneReference = player.GetComponentInParent<Entity>().transform;
+            newPlayer.playerLogic = player.GetComponentInParent<Player>();
         }
-
+        else
+        {
+            newPlayer = availablePlayers[players.Count];
+            newPlayer.playerId = "Player#" + UnityEngine.Random.Range(0, 999999).ToString();
+            newPlayer.playerScore.ClearMe(newPlayer.playerScore);
+            newPlayer.playerLifes = 3;
+            newPlayer.playerSceneReference = player.GetComponentInParent<Entity>().transform;
+            newPlayer.playerLogic = player.GetComponentInParent<Player>();
+        }
         players.Add(newPlayer);
-        GameplayEventsProvider.onPlayerJoined?.Invoke(newPlayer);
+
         newPlayer.playerLogic.UpdateMyInfo(newPlayer);
+        GameplayEventsProvider.onPlayerJoined?.Invoke(newPlayer);
     }
 
-    public PlayerInfo GetMyOpponentInfo(string playerId)
+    public PlayerData GetMyOpponentInfo(string playerId)
     {
-        foreach (PlayerInfo player in players)
+        foreach (PlayerData player in players)
         {
             if (player.playerId != playerId)
                 return player;
@@ -57,9 +60,9 @@ public class GameData : ScriptableObject
         return null;
     }
 
-    public PlayerInfo GetMyPlayerInfo(string playerId)
+    public PlayerData GetMyPlayerInfo(string playerId)
     {
-        foreach (PlayerInfo player in players)
+        foreach (PlayerData player in players)
         {
             if (player.playerId == playerId)
                 return player;
@@ -67,21 +70,21 @@ public class GameData : ScriptableObject
         return null;
     }
 
-    public void PlayerDead(PlayerInfo player)
+    public void PlayerDead(PlayerData player)
     {
-        foreach (PlayerInfo p in players)
+        foreach (PlayerData p in players)
         {
             if (p == player)
             {
                 deadPlayer = player;
                 p.playerScore.deaths++;
-                players.Remove(p);
             }
             else
             {
                 p.playerScore.kills++;
             }
         }
+        players.Remove(player);
         GameplayEventsProvider.onPlayerDied?.Invoke(player);
         CheckIfRoundFinished();
     }

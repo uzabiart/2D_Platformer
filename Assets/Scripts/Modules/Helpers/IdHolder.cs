@@ -14,7 +14,7 @@ public class IdHolder : MonoBehaviour
             myPlayer = GetComponent<Player>();
 
         if (myPlayer == null) return;
-        thisObjectId = myPlayer.myPlayerInfo.playerId;
+        thisObjectId = myPlayer.myPlayerData.playerId;
     }
 
     public string GetMyPlayerId()

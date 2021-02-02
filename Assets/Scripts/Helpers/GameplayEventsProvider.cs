@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class GameplayEventsProvider : MonoBehaviour
 {
-    public static Action<PlayerInfo> onPlayerDied;
-    public static Action<PlayerInfo> onPlayerJoined;
+    public static Action<PlayerData> onPlayerDied;
+    public static Action<PlayerData> onPlayerJoined;
     public static Action onRoundFinished;
     public static Action onRoundStarted;
 }

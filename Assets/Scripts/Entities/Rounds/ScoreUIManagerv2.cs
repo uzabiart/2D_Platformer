@@ -1,61 +1,49 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreUIManagerv2 : MonoBehaviour
 {
-    public List<PlayerRoundScore> players = new List<PlayerRoundScore>();
-
-    public GameObject roundWinnerPanel;
-    public GameObject gameWinnerPanel;
+    //public List<PlayerRoundScore> players = new List<PlayerRoundScore>();
+    public PlayerRoundLifes[] scorePanels;
+    //public GameObject roundWinnerPanel;
+    //public GameObject gameWinnerPanel;
 
     private void OnEnable()
     {
+        ResetScore();
         GameplayEventsProvider.onPlayerJoined += SetupPlayer;
-        GameplayEventsProvider.onPlayerDied += UpdateScores;
+        GameplayEventsProvider.onPlayerDied += OnPlayerDed;
     }
 
     private void OnDisable()
     {
         GameplayEventsProvider.onPlayerJoined -= SetupPlayer;
-        GameplayEventsProvider.onPlayerDied -= UpdateScores;
+        GameplayEventsProvider.onPlayerDied -= OnPlayerDed;
     }
 
-    private void SetupPlayer(PlayerInfo player)
+    private void ResetScore()
     {
-        foreach (PlayerRoundScore p in players)
+        foreach (PlayerRoundLifes p in scorePanels)
         {
-            if (p.playerInfo.playerId == "")
-            {
-                p.playerInfo.playerId = player.playerId;
-                p.roundLifes.UpdateMyView(player.playerLifes);
-                break;
-            }
+            p.ResetScore();
         }
     }
 
-    void UpdateScores(PlayerInfo player)
+    private void SetupPlayer(PlayerData player)
     {
-        foreach (PlayerRoundScore p in players)
+        foreach (PlayerRoundLifes p in scorePanels)
         {
-            if (p.playerInfo.playerId == player.playerId)
-            {
-                p.playerInfo.playerId = "";
-                p.playerInfo.playerLifes = player.playerLifes;
-                p.roundLifes.UpdateMyView(player.playerLifes);
-                break;
-            }
-            else
-            {
-
-            }
+            if (p.CheckAndUpdatePlayerData(player)) break;
         }
     }
-}
 
-[System.Serializable]
-public class PlayerRoundScore
-{
-    public PlayerInfo playerInfo;
-    public PlayerRoundLifes roundLifes;
+    void OnPlayerDed(PlayerData player)
+    {
+        foreach (PlayerRoundLifes p in scorePanels)
+        {
+            p.UpdateMyScore();
+        }
+    }
 }

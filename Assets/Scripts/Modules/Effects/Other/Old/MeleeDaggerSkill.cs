@@ -12,7 +12,7 @@ public class MeleeDaggerSkill : Skill
         newSlash.position = myEntity.transform.position;
         newSlash.GetComponentInChildren<HitDetector>().UpdateMyInfo(GetMyPlayerInfo().playerId, mySkillData);
 
-        PlayerInfo opponentTransform = gameData.GetMyOpponentInfo(GetMyPlayerInfo().playerId);
+        PlayerData opponentTransform = gameData.GetMyOpponentInfo(GetMyPlayerInfo().playerId);
         Vector2 opponentPosition = Vector2.zero;
 
         if (opponentTransform != null)

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Skill : Module
 {
-    PlayerInfo myPlayerInfo;
+    PlayerData myPlayerInfo;
     public SkillData mySkillData;
     protected bool isCd;
     protected float cooldown = 5f;
@@ -21,7 +21,7 @@ public class Skill : Module
         UpdateMyCooldown(mySkillData.cooldown);
         Player player = GetComponentInParent<Player>();
         if (player == null) return;
-        myPlayerInfo = player.myPlayerInfo;
+        myPlayerInfo = player.myPlayerData;
     }
 
     public void UpdateMe(SkillData data)
@@ -30,7 +30,7 @@ public class Skill : Module
         UpdateMyCooldown(data.cooldown);
     }
 
-    public PlayerInfo GetMyPlayerInfo()
+    public PlayerData GetMyPlayerInfo()
     {
         return myPlayerInfo;
     }
