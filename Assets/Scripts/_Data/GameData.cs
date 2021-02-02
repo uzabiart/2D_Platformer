@@ -35,15 +35,11 @@ public class GameData : ScriptableObject
             playerLogic = player.GetComponentInParent<Player>(),
         };
 
-        Debug.Log(newPlayer.playerId);
-
         if (deadPlayer.playerId != "")
         {
             newPlayer.playerId = deadPlayer.playerId;
             newPlayer.playerLifes = deadPlayer.playerLifes;
         }
-
-        Debug.Log(newPlayer.playerId);
 
         players.Add(newPlayer);
         GameplayEventsProvider.onPlayerJoined?.Invoke(newPlayer);

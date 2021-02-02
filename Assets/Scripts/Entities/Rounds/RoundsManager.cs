@@ -63,7 +63,6 @@ public class RoundsManager : MonoBehaviour
 
     private void HidePanels()
     {
-        gameWinnerPanel.SetActive(false);
         roundWinnerPanel.SetActive(false);
     }
 }
