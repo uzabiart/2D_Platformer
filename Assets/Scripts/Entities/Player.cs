@@ -28,4 +28,19 @@ public class Player : MapObject
     {
         return UnityEngine.Random.Range(0f, 1f);
     }
+
+    public void ManagePlayerDed()
+    {
+        GetComponentInChildren<Movement>().ChangeCurrentSpeed(0f);
+        Transform inputTransform = GetComponentInChildren<InputController>().transform;
+        inputTransform.SetParent(transform);
+        inputTransform.SetAsLastSibling();
+        Destroy(transform.GetChild(0).gameObject);
+        Invoke(nameof(DestroyPlayerAfterDelay), 5f);
+    }
+
+    void DestroyPlayerAfterDelay()
+    {
+        Destroy(gameObject);
+    }
 }

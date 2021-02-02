@@ -19,6 +19,7 @@ public class Movement : Module
 
     public void StopMove()
     {
+        if (animator == null) return;
         if (animator.enabled)
         {
             animator.Play("Ponka_Stoi", -1, 0.0f);
@@ -27,6 +28,7 @@ public class Movement : Module
 
     public void Move(Vector3 input)
     {
+        if (animator == null) return;
         onMove?.Invoke(input);
         movingVector = input;
         if (input.x < 0)

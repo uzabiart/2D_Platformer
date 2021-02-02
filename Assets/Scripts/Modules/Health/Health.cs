@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,7 +39,7 @@ public class Health : Module, IHealth
         if (health.currentHealth <= 0)
         {
             gameContext.gameData.PlayerDead(myEntity.GetComponent<Player>().myPlayerInfo);
-            Destroy(myEntity.gameObject);
+            GetComponentInParent<Player>().ManagePlayerDed();
         }
     }
 }

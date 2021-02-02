@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -29,6 +30,7 @@ public class GameData : ScriptableObject
             playerLogic = player.GetComponentInParent<Player>(),
         };
         players.Add(newPlayer);
+        GameplayEventsProvider.onPlayerJoined?.Invoke(newPlayer);
         newPlayer.playerLogic.UpdateMyInfo(newPlayer);
     }
 
@@ -59,8 +61,18 @@ public class GameData : ScriptableObject
             if (p == player)
             {
                 players.Remove(p);
+                GameplayEventsProvider.onPlayerDied?.Invoke(player);
                 break;
             }
+        }
+        CheckIfRoundFinished();
+    }
+
+    private void CheckIfRoundFinished()
+    {
+        if (players.Count <= 1)
+        {
+            GameplayEventsProvider.onRoundFinished?.Invoke();
         }
     }
 }
