@@ -18,4 +18,8 @@ public class PlayerRoundLifes : MonoBehaviour
             playerHealths[i].SetActive(true);
         }
     }
+
+    public void UpdateMyScore()
+    {
+    }
 }
