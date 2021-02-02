@@ -39,6 +39,7 @@ public class GameData : ScriptableObject
         {
             newPlayer.playerId = deadPlayer.playerId;
             newPlayer.playerLifes = deadPlayer.playerLifes;
+            newPlayer.playerScore = deadPlayer.playerScore;
         }
 
         players.Add(newPlayer);
@@ -73,12 +74,15 @@ public class GameData : ScriptableObject
             if (p == player)
             {
                 deadPlayer = player;
+                p.playerScore.deaths++;
                 players.Remove(p);
-                player.playerLifes--;
-                GameplayEventsProvider.onPlayerDied?.Invoke(player);
-                break;
+            }
+            else
+            {
+                p.playerScore.kills++;
             }
         }
+        GameplayEventsProvider.onPlayerDied?.Invoke(player);
         CheckIfRoundFinished();
     }
 
@@ -96,7 +100,23 @@ public class PlayerInfo
 {
     public string playerId;
     public int playerLifes;
+    public PlayerScoreInfo playerScore;
     public Color myColor;
     public Transform playerSceneReference;
     public Player playerLogic;
+}
+
+[System.Serializable]
+public class PlayerScoreInfo
+{
+    public int kills;
+    public int deaths;
+    public int level;
+
+    public void ClearMe(PlayerScoreInfo scoreInfo)
+    {
+        scoreInfo.kills = 0;
+        scoreInfo.deaths = 0;
+        scoreInfo.level = 1;
+    }
 }

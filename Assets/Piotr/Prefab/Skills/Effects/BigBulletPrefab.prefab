@@ -533,7 +533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7112334925526036140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.02, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_Children:
   - {fileID: 1393234156391774750}
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 7112334925588165941}
   m_Layer: 0
   m_Name: HitDetector
-  m_TagString: NonObstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,11 +592,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects:
-  - {fileID: 7112334926754286492}
+  - {fileID: 2016373438653263866}
   myCollider: {fileID: 7112334925588165941}
   hitEffect: {fileID: 5060261373767028247, guid: 4363148b3c0cf1f42927a6c0ef3f6ef0, type: 3}
-  dieOnImpact: 1
-  doIHitAll: 0
+  dieOnImpact: 0
+  doIHitAll: 1
 --- !u!61 &7112334925588165941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -632,7 +632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7112334926754286482}
-  - component: {fileID: 7112334926754286492}
+  - component: {fileID: 2016373438653263866}
   - component: {fileID: 4534674817151518460}
   m_Layer: 0
   m_Name: BigBulletPrefab
@@ -649,7 +649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7112334926754286481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6229606, y: 1.7703406, z: -7.0665336}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7112334925526036141}
@@ -657,7 +657,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7112334926754286492
+--- !u!114 &2016373438653263866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7112334926754286481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 268a69d4e17e1da4b9548ccebfbdb904, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dd40e94aaea24849b740fe1dad74ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myTarget: {fileID: 0}
@@ -798,7 +798,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7112334927156579940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7112334925588165899}

@@ -15,8 +15,10 @@ public class BigShotSkill : Skill
 
         PlayerInfo opponentTransform = gameData.GetMyOpponentInfo(GetMyPlayerInfo().playerId);
 
-        Vector2 direction = transform.position - opponentTransform.playerSceneReference.position;
+        Vector3 direction = transform.position - Vector3.zero;
+        if (gameData.players.Count > 1)
+            direction = transform.position - opponentTransform.playerSceneReference.position;
 
-        rigi.AddForceAtPosition(direction.normalized * 180f * -2f, transform.position);
+        rigi.AddForceAtPosition(direction.normalized * 230f * -2f, transform.position);
     }
 }
