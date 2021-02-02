@@ -6,7 +6,7 @@ using UnityEngine;
 public class RandomMissilesSkill : Skill
 {
     public GameObject missilePrefab;
-    int homManyMissiles = 2;
+    int homManyMissiles = 3;
 
     public override void UseSkill()
     {
@@ -33,7 +33,7 @@ public class RandomMissilesSkill : Skill
         Vector2 direction = transform.position - Vector3.zero;
         Vector3 slightlyRandomPosition = Vector3.zero;
         if (opponentTransform != null)
-            slightlyRandomPosition = new Vector3(opponentTransform.playerSceneReference.position.x + UnityEngine.Random.Range(-3f, 3f), opponentTransform.playerSceneReference.position.y + UnityEngine.Random.Range(-3f, 3f), 1f);
+            slightlyRandomPosition = new Vector3(opponentTransform.playerSceneReference.position.x + UnityEngine.Random.Range(-2f, 2f), opponentTransform.playerSceneReference.position.y + UnityEngine.Random.Range(-2f, 2f), 1f);
 
         direction = transform.position - slightlyRandomPosition;
 

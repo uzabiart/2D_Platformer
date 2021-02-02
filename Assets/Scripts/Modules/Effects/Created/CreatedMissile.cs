@@ -6,7 +6,7 @@ using UnityEngine;
 public class CreatedMissile : Effect
 {
     public Rigidbody2D rigi;
-    float randomizedDirection;
+    float randomizedDirection = 0;
 
     private void Start()
     {
@@ -28,8 +28,12 @@ public class CreatedMissile : Effect
 
     private IEnumerator MissileSequences()
     {
+        if (randomizedDirection == 0)
+            randomizedDirection = 2;
         yield return new WaitForSeconds(0.2f);
-        randomizedDirection = UnityEngine.Random.Range(-3f, 3f);
+        if (randomizedDirection == -4) randomizedDirection = 4;
+        else randomizedDirection = -4;
+        //randomizedDirection = UnityEngine.Random.Range(-2f, 2f);
         StartCoroutine(MissileSequences());
     }
 
