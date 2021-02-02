@@ -31,11 +31,11 @@ public class MissileBarrageSkill : Skill
         PlayerInfo opponentTransform = gameData.GetMyOpponentInfo(GetMyPlayerInfo().playerId);
         Vector2 direction = transform.position - Vector3.zero;
         Vector3 slightlyRandomPosition = new Vector3(UnityEngine.Random.Range(-50f, 50f), UnityEngine.Random.Range(-50f, 50f), 1f);
-        //if (opponentTransform != null)
-        //slightlyRandomPosition = new Vector3(opponentTransform.playerSceneReference.position.x + UnityEngine.Random.Range(-7f, 7f), opponentTransform.playerSceneReference.position.y + UnityEngine.Random.Range(-7f, 7f), 1f);
+        if (opponentTransform != null)
+            slightlyRandomPosition = new Vector3(opponentTransform.playerSceneReference.position.x + UnityEngine.Random.Range(-7f, 7f), opponentTransform.playerSceneReference.position.y + UnityEngine.Random.Range(-7f, 7f), 1f);
 
         direction = transform.position - slightlyRandomPosition;
 
-        rigi.AddForceAtPosition(direction.normalized * 350f * -2f, transform.position);
+        rigi.AddForceAtPosition(direction.normalized * 300f * -2f, transform.position);
     }
 }

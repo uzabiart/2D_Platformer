@@ -23,7 +23,6 @@ public class KamehameSkill : Skill
         modules = GetComponentInParent<Modules>();
         myMovement = modules.GetComponentInChildren<Movement>();
         myMovement.onMove += SteerKamehame;
-        //animationRandomId = UnityEngine.Random.Range(0, 999999).ToString();
     }
 
     private void OnDisable()
@@ -33,6 +32,7 @@ public class KamehameSkill : Skill
 
     public override void UseSkill()
     {
+        StopAllCoroutines();
         canSteerKamehame = true;
         myMovement.ChangeCurrentSpeed(0f);
         SetupKamehamePosition();
@@ -64,7 +64,7 @@ public class KamehameSkill : Skill
             rotationSpeed = -1;
         else if (input.x < 0)
             rotationSpeed = 1f;
-        newKamehame.Rotate(new Vector3(0, 0, rotationSpeed * 0.05f));
+        newKamehame.Rotate(new Vector3(0, 0, rotationSpeed * 0.03f));
     }
 
     private IEnumerator KamehameSequence()
