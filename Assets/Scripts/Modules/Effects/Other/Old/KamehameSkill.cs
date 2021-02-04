@@ -43,9 +43,9 @@ public class KamehameSkill : Skill
     {
         newKamehame = Instantiate(kamehamePrefab).transform;
         newKamehame.position = myEntity.transform.position;
-        newKamehame.GetComponentInChildren<HitDetector>().UpdateMyInfo(GetMyPlayerInfo().playerId, mySkillData);
+        newKamehame.GetComponentInChildren<HitDetector>().UpdateMyInfo(myEntity.GetMyEntityId(), mySkillData);
 
-        PlayerData opponentTransform = gameData.GetMyOpponentInfo(GetMyPlayerInfo().playerId);
+        PlayerData opponentTransform = gameData.GetMyOpponentInfo(myEntity.GetMyEntityId());
         Vector2 opponentPosition = Vector2.zero;
 
         if (opponentTransform != null)
@@ -53,7 +53,7 @@ public class KamehameSkill : Skill
 
         opponentPosition = new Vector2(opponentPosition.x - myEntity.transform.position.x, opponentPosition.y - myEntity.transform.position.y);
         float angle = Mathf.Atan2(opponentPosition.y, opponentPosition.x) * Mathf.Rad2Deg;
-        newKamehame.localEulerAngles = new Vector3(0f, 0f, angle * Time.deltaTime * 400f);
+        newKamehame.localEulerAngles = new Vector3(0f, 0f, angle * Time.deltaTime * 800f);
     }
 
     private void SteerKamehame(Vector3 input)

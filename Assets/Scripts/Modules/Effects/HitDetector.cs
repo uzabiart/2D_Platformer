@@ -32,9 +32,9 @@ public class HitDetector : Module
         myCollider.enabled = true;
     }
 
-    public void UpdateMyInfo(string playerId, SkillData newSkillData)
+    public void UpdateMyInfo(string entityId, SkillData newSkillData)
     {
-        savedPlayerId = playerId;
+        savedPlayerId = entityId;
         mySkillData = newSkillData;
     }
 
@@ -53,7 +53,7 @@ public class HitDetector : Module
         IdHolder idHolder = collision.GetComponent<IdHolder>();
         if (idHolder != null)
         {
-            if (idHolder.GetMyPlayerId() == savedPlayerId)
+            if (idHolder.GetMyEntityId() == savedPlayerId)
                 return;
         }
         if (effectReceiver != null)
@@ -82,7 +82,7 @@ public class HitDetector : Module
         IdHolder idHolder = collision.GetComponent<IdHolder>();
         if (idHolder != null)
         {
-            if (idHolder.GetMyPlayerId() == savedPlayerId)
+            if (idHolder.GetMyEntityId() == savedPlayerId)
                 return;
         }
         if (effectReceiver != null)

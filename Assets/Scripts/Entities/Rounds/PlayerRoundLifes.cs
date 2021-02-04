@@ -42,6 +42,7 @@ public class PlayerRoundLifes : MonoBehaviour
 
     public void UpdateMyScore()
     {
+        if (holdedPlayerData == null) return;
         killsAmount.text = holdedPlayerData.playerScore.kills.ToString();
         deathsAmount.text = holdedPlayerData.playerScore.deaths.ToString();
     }

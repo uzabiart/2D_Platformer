@@ -47,7 +47,7 @@ public class MushroomBlowup : Module
         IdHolder idHolder = collision.GetComponent<IdHolder>();
         if (idHolder != null)
         {
-            if (idHolder.GetMyPlayerId() == myPlayerId || idHolder.GetMyPlayerId() == "") return;
+            if (idHolder.GetMyEntityId() == myPlayerId || idHolder.GetMyEntityId() == "") return;
             BlowUp(idHolder.GetComponentInChildren<Health>());
         }
     }

@@ -3,27 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdHolder : MonoBehaviour
+public class IdHolder : Module
 {
     public string thisObjectId;
 
-    private void Awake()
+    public void Start()
     {
-        Player myPlayer = GetComponentInParent<Player>();
-        if (myPlayer == null)
-            myPlayer = GetComponent<Player>();
-
-        if (myPlayer == null) return;
-        thisObjectId = myPlayer.myPlayerData.playerId;
+        thisObjectId = myEntity.GetMyEntityId();
     }
 
-    public string GetMyPlayerId()
+    public string GetMyEntityId()
     {
         return thisObjectId;
     }
 
-    public void UpdateMyInfo(string playerId)
+    public void UpdateMyInfo(string newEntityId)
     {
-        thisObjectId = playerId;
+        thisObjectId = newEntityId;
     }
 }

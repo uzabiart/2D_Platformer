@@ -7,6 +7,8 @@ public class SkillsPlayer : MonoBehaviour
 {
     InputController inputController;
 
+    public Transform myMinoinTarget;
+
     public Skill basicSkill;
     public Skill ultiSkill;
     public Skill dashSkill;
@@ -33,22 +35,36 @@ public class SkillsPlayer : MonoBehaviour
         inputController.onDashUsed -= UseDash;
     }
 
+
+    public void UpdateMyMinoinTarget(Transform minion)
+    {
+        myMinoinTarget = minion;
+    }
+
+    public void ClearMyMinoinTarget()
+    {
+        myMinoinTarget = null;
+    }
+
     private void UseBasic()
     {
         if (basicSkill == null) return;
-        basicSkill.useSkillIfAble();
+        basicSkill.UpdateMyTarget(myMinoinTarget);
+        basicSkill.UseSkillbyPlayer();
     }
 
     private void UseUlti()
     {
         if (ultiSkill == null) return;
-        ultiSkill.useSkillIfAble();
+        ultiSkill.UpdateMyTarget(myMinoinTarget);
+        ultiSkill.UseSkillbyPlayer();
     }
 
     private void UseDash()
     {
         if (dashSkill == null) return;
-        dashSkill.useSkillIfAble();
+        dashSkill.UpdateMyTarget(myMinoinTarget);
+        dashSkill.UseSkillbyPlayer();
     }
 
     public void PickUpNewSkill(SkillData skill)

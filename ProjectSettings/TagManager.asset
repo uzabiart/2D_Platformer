@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Empty
   - NonObstacle
+  - Enemy
   layers:
   - Default
   - TransparentFX

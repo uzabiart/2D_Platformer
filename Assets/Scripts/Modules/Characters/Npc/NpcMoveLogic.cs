@@ -10,8 +10,11 @@ public class NpcMoveLogic : Module
     public Movement myMovement;
     Transform fetchBall;
 
+    string thisMinionMoveId;
+
     private void Start()
     {
+        thisMinionMoveId = UnityEngine.Random.Range(0, 999999).ToString();
         StartCoroutine(ThrowFetchBall());
     }
 
@@ -35,7 +38,18 @@ public class NpcMoveLogic : Module
     private void MoveToBall()
     {
         float getDistance = Vector2.Distance(myEntity.transform.position, fetchBall.position);
-        myEntity.transform.DOMove(fetchBall.position, 1.5f * getDistance).SetEase(Ease.Linear).OnComplete(() => StartCoroutine(ThrowFetchBall()));
+        myEntity.transform.DOMove(fetchBall.position, 1.5f * getDistance).SetEase(Ease.Linear).OnComplete(() => StartCoroutine(ThrowFetchBall())).SetId("NPCMoveAnimation_" + thisMinionMoveId);
         Destroy(fetchBall.gameObject);
+    }
+
+    public void StopMoving()
+    {
+        StopAllCoroutines();
+        DOTween.Kill("NPCMoveAnimation_" + thisMinionMoveId);
+    }
+
+    public void ResumeMoving()
+    {
+        StartCoroutine(ThrowFetchBall());
     }
 }

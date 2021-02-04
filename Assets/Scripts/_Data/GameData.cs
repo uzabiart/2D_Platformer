@@ -28,7 +28,8 @@ public class GameData : ScriptableObject
     public void AddPlayer(PlayerInput player)
     {
         PlayerData newPlayer = null;
-
+        Entity playerEntity = player.GetComponentInParent<Entity>();
+        playerEntity.GenerateMyId();
         if (deadPlayer != null)
         {
             newPlayer = deadPlayer;
@@ -38,10 +39,10 @@ public class GameData : ScriptableObject
         else
         {
             newPlayer = availablePlayers[players.Count];
-            newPlayer.playerId = "Player#" + UnityEngine.Random.Range(0, 999999).ToString();
             newPlayer.playerScore.ClearMe(newPlayer.playerScore);
             newPlayer.playerLifes = 3;
-            newPlayer.playerSceneReference = player.GetComponentInParent<Entity>().transform;
+            newPlayer.playerSceneReference = playerEntity.transform;
+            newPlayer.playerId = playerEntity.GetMyEntityId();
             newPlayer.playerLogic = player.GetComponentInParent<Player>();
         }
         players.Add(newPlayer);

@@ -15,6 +15,11 @@ public class Skill : Module
     bool pressing;
     bool skipDoubleClick;
 
+    protected Transform myTarget;
+    protected Vector3 nextPositionForNpc;
+    public GameObject coneForNpc;
+    protected bool npcAttack;
+
     public override void Awake()
     {
         base.Awake();
@@ -41,17 +46,39 @@ public class Skill : Module
         currentCooldown = cooldown;
     }
 
-    public void useSkillIfAble()
+    public void UseSkillbyPlayer()
     {
         if (skipDoubleClick) { skipDoubleClick = false; return; }
         skipDoubleClick = true;
         if (pressing) { StopUsingSkill(); pressing = false; }
         else { pressing = true; }
+        SetupMyTarget();
+        UseSkillIfCdOff();
+        StartCoroutine(PressingStart());
+    }
+
+    private void SetupMyTarget()
+    {
+        if (myTarget == null && gameData.players.Count > 1)
+            myTarget = gameData.GetMyOpponentInfo(myEntity.GetMyEntityId()).playerSceneReference.transform;
+    }
+
+    public void UseSkillIfCdOff()
+    {
         if (isCd) return;
         isCd = true;
         UseSkill();
         StartCoroutine(CdOff(currentCooldown));
-        StartCoroutine(PressingStart());
+    }
+
+    public void UseNpcSkill()
+    {
+        UseSkill();
+    }
+
+    public void UpdateMyTarget(Transform target)
+    {
+        myTarget = target;
     }
 
     public virtual void UseSkill()
@@ -83,20 +110,26 @@ public class Skill : Module
         cooldownLeft -= (cooldown * cdMod);
         currentCooldown = cooldown - (cooldown * cdMod);
 
-        //if (cooldown <= 1)
-        //{
-        //    currentCooldown = 0.2f;
-        //}
-        //else if (cooldown <= 2)
-        //{
-        //    currentCooldown = 0.5f;
-        //}
-
         Invoke(nameof(ResetCooldowns), time);
     }
 
     void ResetCooldowns()
     {
         currentCooldown = cooldown;
+    }
+
+    public virtual void SetupNpcAttack()
+    {
+        if (coneForNpc == null) return;
+        npcAttack = true;
+        nextPositionForNpc = myTarget.position;
+        coneForNpc.SetActive(true);
+    }
+
+    public virtual void HideNpcAttack()
+    {
+        if (coneForNpc == null) return;
+        npcAttack = false;
+        coneForNpc.SetActive(false);
     }
 }
