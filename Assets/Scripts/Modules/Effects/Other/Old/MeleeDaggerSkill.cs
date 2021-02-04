@@ -8,6 +8,7 @@ public class MeleeDaggerSkill : Skill
 
     public override void UseSkill()
     {
+        base.UseSkill();
         Transform newSlash = Instantiate(daggerSlashPrefab).transform;
         newSlash.position = myEntity.transform.position;
         newSlash.GetComponentInChildren<HitDetector>().UpdateMyInfo(myEntity.GetMyEntityId(), mySkillData);

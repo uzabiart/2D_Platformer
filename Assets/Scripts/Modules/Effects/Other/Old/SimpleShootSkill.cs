@@ -8,6 +8,7 @@ public class SimpleShootSkill : Skill
 
     public override void UseSkill()
     {
+        base.UseSkill();
         Transform newBullet = Instantiate(bulletPrefab).transform;
         newBullet.GetComponentInChildren<HitDetector>().UpdateMyInfo(GetMyPlayerInfo().playerId, mySkillData);
         newBullet.position = myEntity.transform.position;

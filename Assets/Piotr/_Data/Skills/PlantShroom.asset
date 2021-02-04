@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlantShroom
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 21300000, guid: 5dca221a2ecf2cd4cb64f3c95c38f8e6, type: 3}
-  damage: 20
+  damage: 13
   cooldown: 2.5
   type: 20
   skillPrefab: {fileID: 6494730647739716514, guid: d67e20a3111733b478a147f679d5a816, type: 3}

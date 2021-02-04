@@ -23,6 +23,8 @@ public class Skill : Module
     public override void Awake()
     {
         base.Awake();
+        print(myEntity);
+        print(gameData);
         UpdateMyCooldown(mySkillData.cooldown);
         Player player = GetComponentInParent<Player>();
         if (player == null) return;
@@ -52,12 +54,11 @@ public class Skill : Module
         skipDoubleClick = true;
         if (pressing) { StopUsingSkill(); pressing = false; }
         else { pressing = true; }
-        SetupMyTarget();
         UseSkillIfCdOff();
         StartCoroutine(PressingStart());
     }
 
-    private void SetupMyTarget()
+    private void CheckMyTarget()
     {
         if (myTarget == null && gameData.players.Count > 1)
             myTarget = gameData.GetMyOpponentInfo(myEntity.GetMyEntityId()).playerSceneReference.transform;
@@ -83,6 +84,7 @@ public class Skill : Module
 
     public virtual void UseSkill()
     {
+        CheckMyTarget();
     }
 
     public virtual void StopUsingSkill()

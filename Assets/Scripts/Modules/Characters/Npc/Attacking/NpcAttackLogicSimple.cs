@@ -70,6 +70,7 @@ public class NpcAttackLogicSimple : Module
 
     void Attack()
     {
+        if (nextSkillToUse == null) return;
         nextSkillToUse.UseNpcSkill();
         nextSkillToUse.HideNpcAttack();
         if (!attacking) return;

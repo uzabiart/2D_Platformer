@@ -23,6 +23,7 @@ public class MissileBarrageSkill : Skill
 
     private void SpawnRandomMissle()
     {
+        base.UseSkill();
         Transform newBullet = Instantiate(missilePrefab).transform;
         newBullet.GetComponentInChildren<HitDetector>().UpdateMyInfo(myEntity.GetMyEntityId(), mySkillData);
         newBullet.position = myEntity.transform.position;
@@ -35,6 +36,6 @@ public class MissileBarrageSkill : Skill
 
         direction = transform.position - slightlyRandomPosition;
 
-        rigi.AddForceAtPosition(direction.normalized * 300f * -2f, transform.position);
+        rigi.AddForceAtPosition(direction.normalized * 240f * -2f, transform.position);
     }
 }
