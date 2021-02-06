@@ -20,11 +20,11 @@ public class Skill : Module
     public GameObject coneForNpc;
     protected bool npcAttack;
 
+    public Action<SkillData> onSkillPlayed;
+
     public override void Awake()
     {
         base.Awake();
-        print(myEntity);
-        print(gameData);
         UpdateMyCooldown(mySkillData.cooldown);
         Player player = GetComponentInParent<Player>();
         if (player == null) return;
@@ -68,6 +68,7 @@ public class Skill : Module
     {
         if (isCd) return;
         isCd = true;
+        onSkillPlayed?.Invoke(mySkillData);
         UseSkill();
         StartCoroutine(CdOff(currentCooldown));
     }

@@ -9,7 +9,8 @@ public class IdHolder : Module
 
     public void Start()
     {
-        thisObjectId = myEntity.GetMyEntityId();
+        if (thisObjectId == "")
+            thisObjectId = myEntity.GetMyEntityId();
     }
 
     public string GetMyEntityId()

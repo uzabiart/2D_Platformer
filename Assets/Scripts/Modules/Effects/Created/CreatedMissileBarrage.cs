@@ -22,7 +22,7 @@ public class CreatedMissileBarrage : Effect
 
     public override void PlayMyEffect(int damage)
     {
-        GetComponentInParent<Modules>().GetComponentInChildren<Health>().TakeDamage(damage);
+        GetComponentInParent<Modules>().GetComponentInChildren<Health>().TakeDamage(damage, GetMyEntityId());
     }
 
     private IEnumerator MissileSequences()

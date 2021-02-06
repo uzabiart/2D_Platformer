@@ -12,6 +12,7 @@ public class MeleeDaggerSkill : Skill
         Transform newSlash = Instantiate(daggerSlashPrefab).transform;
         newSlash.position = myEntity.transform.position;
         newSlash.GetComponentInChildren<HitDetector>().UpdateMyInfo(myEntity.GetMyEntityId(), mySkillData);
+        newSlash.GetComponentInChildren<Entity>().entityId = myEntity.GetMyEntityId();
 
         Transform targetTransform = myTarget;
         Vector2 opponentPosition = Vector2.zero;

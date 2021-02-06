@@ -45,6 +45,7 @@ public class KamehameSkill : Skill
         newKamehame = Instantiate(kamehamePrefab).transform;
         newKamehame.position = myEntity.transform.position;
         newKamehame.GetComponentInChildren<HitDetector>().UpdateMyInfo(myEntity.GetMyEntityId(), mySkillData);
+        newKamehame.GetComponent<Entity>().entityId = myEntity.GetMyEntityId();
 
         PlayerData opponentTransform = gameData.GetMyOpponentInfo(myEntity.GetMyEntityId());
         Vector2 opponentPosition = Vector2.zero;

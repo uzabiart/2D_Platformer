@@ -15,5 +15,6 @@ MonoBehaviour:
   skillIcon: {fileID: 21300000, guid: 330293edbac5dab4fa90d53826cd5ed1, type: 3}
   damage: 10
   cooldown: 0.5
+  manaCost: 10
   type: 10
   skillPrefab: {fileID: 1024697752531497240, guid: 5e053d00bccb8dd40b1b69ef57e1aa0a, type: 3}

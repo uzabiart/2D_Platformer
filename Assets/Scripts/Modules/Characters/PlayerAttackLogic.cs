@@ -9,10 +9,15 @@ public class PlayerAttackLogic : Module
     Sensor mySensor;
     public GameObject aggroView;
     public SkillsPlayer skillsPlayer;
+    public Transform sensor;
+    InputController inputController;
+    bool doubleClick;
+    bool pressing;
 
     public override void Awake()
     {
         base.Awake();
+        inputController = GetComponentInParent<Modules>().GetComponentInChildren<InputController>();
         mySensor = GetComponentInChildren<Sensor>();
     }
 
@@ -20,12 +25,14 @@ public class PlayerAttackLogic : Module
     {
         mySensor.onTargetAdded += StartMinionAggro;
         mySensor.onTargetLost += FinishMinionAggro;
+        inputController.onIncreaseRange += IncreaseSensorRange;
     }
 
     private void OnDisable()
     {
         mySensor.onTargetAdded -= StartMinionAggro;
         mySensor.onTargetLost -= FinishMinionAggro;
+        inputController.onIncreaseRange -= IncreaseSensorRange;
     }
 
     private void StartMinionAggro(Transform target)
@@ -41,5 +48,19 @@ public class PlayerAttackLogic : Module
             aggroView.SetActive(false);
             skillsPlayer.ClearMyMinoinTarget();
         }
+    }
+
+    private void IncreaseSensorRange()
+    {
+        if (doubleClick) { doubleClick = false; return; }
+        doubleClick = true;
+        if (pressing) { pressing = false; DecreaseRange(); return; }
+        pressing = true;
+        sensor.localScale *= 5f;
+    }
+
+    private void DecreaseRange()
+    {
+        sensor.localScale /= 5f;
     }
 }

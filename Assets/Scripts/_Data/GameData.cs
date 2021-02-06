@@ -117,11 +117,13 @@ public class PlayerScoreInfo
     public int kills;
     public int deaths;
     public int level;
+    public int gold;
 
     public void ClearMe(PlayerScoreInfo scoreInfo)
     {
         scoreInfo.kills = 0;
         scoreInfo.deaths = 0;
         scoreInfo.level = 1;
+        scoreInfo.gold = 0;
     }
 }

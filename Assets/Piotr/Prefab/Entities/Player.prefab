@@ -146,6 +146,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1824480723702943673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8103745795779055957}
+  - component: {fileID: 6473977813418977107}
+  m_Layer: 0
+  m_Name: AudioModule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8103745795779055957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824480723702943673}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6558097127833014530}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6473977813418977107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824480723702943673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707cab8ca9a0ac7468ec0b320ab309a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomizedAudioClips:
+  - {fileID: 8300000, guid: 3c8ed93b1b0f37b42b56757e9267cfe2, type: 3}
+  - {fileID: 8300000, guid: 2f871117946d71b468c7cf271b2a086d, type: 3}
+  - {fileID: 8300000, guid: 33b37ebb40fef914da3cf0bed6a3b3c2, type: 3}
+  - {fileID: 8300000, guid: 7849b1bc96706eb4ea36e0f3a575c92e, type: 3}
+  - {fileID: 8300000, guid: 7686a372305020141bf9fb286e83c7b0, type: 3}
+  - {fileID: 8300000, guid: e10df810b1d7da249b60d77962826f6f, type: 3}
+  - {fileID: 8300000, guid: 55373d65a3b80c242965c5fd1d4f1965, type: 3}
+  - {fileID: 8300000, guid: 19012d1ac4a3d0547adb28ac8cf92280, type: 3}
+  - {fileID: 8300000, guid: d9998be7faee42242b2c611e912b7864, type: 3}
+  - {fileID: 8300000, guid: c0c7643d284252b4c8f9ede4e8267c64, type: 3}
+  sfxVolume: 0.05
 --- !u!1 &2087549144424717132
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +212,7 @@ GameObject:
   - component: {fileID: 2582663559132490272}
   - component: {fileID: 1143942523883692641}
   - component: {fileID: 3799002539746259420}
+  - component: {fileID: 5266353109857188610}
   m_Layer: 0
   m_Name: Avatar
   m_TagString: Untagged
@@ -249,6 +305,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5266353109857188610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087549144424717132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a85532a2f73b449b4a02039d7df0d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event1:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6473977813418977107}
+        m_TargetAssemblyTypeName: AudioPlayerModule, Assembly-CSharp
+        m_MethodName: PlayMySFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  event2:
+    m_PersistentCalls:
+      m_Calls: []
+  event3:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2418561958241893407
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroView: {fileID: 8483578189596438142}
   skillsPlayer: {fileID: 8686777082819565829}
+  sensor: {fileID: 3302918903887313807}
 --- !u!1 &4558246394673582152
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +427,49 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ef457337cd1c9040a9ad782c6d06e42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4861071696589531277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5910687712778354378}
+  - component: {fileID: 2969456113512165640}
+  m_Layer: 0
+  m_Name: ManaManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5910687712778354378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4861071696589531277}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6558097127833014530}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2969456113512165640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4861071696589531277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a216d1bc08c1e4fb88e4afdeb6f6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6268398182126184075
@@ -619,6 +752,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a4aec0ba-ca50-4882-9901-18872dfa5845
     m_ActionName: Gameplay/Dash[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6558097126987532656}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: IncreaseRange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3c3e04be-c51f-468b-a65a-f84c76ca8748
+    m_ActionName: Gameplay/IncreaseSensorRange[/XInputControllerWindows/leftTrigger,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -692,6 +841,8 @@ Transform:
   - {fileID: 509448190053029972}
   - {fileID: 1633580622023242924}
   - {fileID: 6610624200784486343}
+  - {fileID: 5910687712778354378}
+  - {fileID: 8103745795779055957}
   m_Father: {fileID: 6558097127351489370}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

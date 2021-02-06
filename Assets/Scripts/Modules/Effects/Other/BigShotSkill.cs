@@ -12,6 +12,7 @@ public class BigShotSkill : Skill
         Transform newBullet = Instantiate(bigBulletPrefab).transform;
         newBullet.GetComponentInChildren<HitDetector>().UpdateMyInfo(GetMyPlayerInfo().playerId, mySkillData);
         newBullet.position = myEntity.transform.position;
+        newBullet.GetComponentInChildren<Entity>().entityId = myEntity.GetMyEntityId();
         Rigidbody2D rigi = newBullet.GetComponent<Rigidbody2D>();
 
         Vector3 direction = transform.position - Vector3.zero;

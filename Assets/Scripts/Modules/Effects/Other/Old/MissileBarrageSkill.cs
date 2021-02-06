@@ -28,6 +28,7 @@ public class MissileBarrageSkill : Skill
         newBullet.GetComponentInChildren<HitDetector>().UpdateMyInfo(myEntity.GetMyEntityId(), mySkillData);
         newBullet.position = myEntity.transform.position;
         Rigidbody2D rigi = newBullet.GetComponent<Rigidbody2D>();
+        newBullet.GetComponentInChildren<Entity>().entityId = myEntity.GetMyEntityId();
 
         Vector2 direction = transform.position - Vector3.zero;
         Vector3 slightlyRandomPosition = new Vector3(UnityEngine.Random.Range(-50f, 50f), UnityEngine.Random.Range(-50f, 50f), 1f);

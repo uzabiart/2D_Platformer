@@ -12,7 +12,7 @@ public class SimpleBulletCreated : Effect
 
     public override void PlayMyEffect(int damage)
     {
-        GetComponentInParent<Modules>().GetComponentInChildren<Health>().TakeDamage(damage);
+        GetComponentInParent<Modules>().GetComponentInChildren<Health>().TakeDamage(damage, GetMyEntityId());
     }
 
     private void DestroyMeAfterDelay()
