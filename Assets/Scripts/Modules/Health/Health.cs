@@ -8,14 +8,16 @@ public class Health : Module, IHealth
 {
     public HealthInfo health;
     public Image fillBar;
+    string latestDamageSourceId;
 
     private void Start()
     {
         UpdateInfo();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, string damageSourceId)
     {
+        latestDamageSourceId = damageSourceId;
         health.currentHealth -= damage;
         UpdateInfo();
     }
@@ -41,11 +43,25 @@ public class Health : Module, IHealth
             Player getplayer = GetComponentInParent<Player>();
             if (getplayer != null)
             {
+                PlayerData targetData = gameData.GetMyPlayerInfo(latestDamageSourceId);
+                if(targetData!= null)
+                {
+                    targetData.AddGold(getplayer.GetMyPlayerData().giveGoldAmount);
+                }
                 gameContext.gameData.PlayerDead(getplayer.myPlayerData);
-                GetComponentInParent<Player>().ManagePlayerDed();
+                getplayer.ManagePlayerDed();
             }
             else
+            {
+                Enemy getenemy = GetComponentInParent<Enemy>();
+                if (getenemy != null)
+                {
+                    PlayerData targetdata = gameData.GetMyPlayerInfo(latestDamageSourceId);
+                    if (targetdata != null)
+                        targetdata.AddGold(getenemy.myEnemyData.giveGoldAmount);
+                }
                 Destroy(myEntity.gameObject);
+            }
         }
     }
 }

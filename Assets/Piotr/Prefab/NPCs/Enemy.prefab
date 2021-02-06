@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 3372932171254285672}
   - component: {fileID: 7518996481026531963}
   m_Layer: 0
-  m_Name: Evenmy
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -711,6 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityId: 
+  myEnemyData: {fileID: 11400000, guid: c7efd28cacd4e7e4d87fe48bf6415b89, type: 2}
 --- !u!50 &3325052836662147443
 Rigidbody2D:
   serializedVersion: 4
@@ -771,7 +772,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08245009, y: -0.12225318}
+  m_Offset: {x: -0.007930994, y: 0.016991913}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -782,7 +783,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8131281, y: 1.9041071}
+  m_Size: {x: 2.881075, y: 2.3627977}
   m_EdgeRadius: 0
 --- !u!114 &7518996481026531963
 MonoBehaviour:
@@ -873,8 +874,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health:
-    maxHealth: 80
-    currentHealth: 80
+    maxHealth: 20
+    currentHealth: 20
   fillBar: {fileID: 5051165282809688145}
 --- !u!1 &4349580278666560040
 GameObject:

@@ -14,10 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 
   playerLifes: 0
+  playerMana:
+    rechargeTimeOfMaxMana: 4
+    maxMana: 100
+    currentMana: 100
   playerScore:
     kills: 0
     deaths: 0
     level: 0
+    gold: 0
   myColor: {r: 0, g: 0, b: 0, a: 0}
   playerSceneReference: {fileID: 0}
   playerLogic: {fileID: 0}
+  giveGoldAmount: 300

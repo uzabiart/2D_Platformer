@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IHealth
 {
-    void TakeDamage(int damage);
+    void TakeDamage(int damage, string damageSourceId);
     void TakeHealing(int healing);
 }

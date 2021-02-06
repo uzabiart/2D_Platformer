@@ -18,6 +18,6 @@ public class CreatedSlashEffect : Effect
 
     public override void PlayMyEffect(int damage)
     {
-        GetComponentInParent<Modules>().GetComponentInChildren<Health>().TakeDamage(damage);
+        GetComponentInParent<Modules>().GetComponentInChildren<Health>().TakeDamage(damage, GetMyEntityId());
     }
 }

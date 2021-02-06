@@ -6,12 +6,15 @@ using UnityEngine;
 public class SkillsPlayer : MonoBehaviour
 {
     InputController inputController;
+    bool canPlay = true;
 
     public Transform myMinoinTarget;
 
     public Skill basicSkill;
     public Skill ultiSkill;
     public Skill dashSkill;
+
+    public Action<SkillData> onSkillPlayed;
 
     private void Awake()
     {
@@ -49,22 +52,35 @@ public class SkillsPlayer : MonoBehaviour
     private void UseBasic()
     {
         if (basicSkill == null) return;
+        if (!canPlay && basicSkill.mySkillData.manaCost != 0) return;
+        basicSkill.onSkillPlayed += InvokeSkillPlayed;
         basicSkill.UpdateMyTarget(myMinoinTarget);
         basicSkill.UseSkillbyPlayer();
+        basicSkill.onSkillPlayed -= InvokeSkillPlayed;
     }
 
     private void UseUlti()
     {
         if (ultiSkill == null) return;
+        if (!canPlay && ultiSkill.mySkillData.manaCost != 0) return;
+        ultiSkill.onSkillPlayed += InvokeSkillPlayed;
         ultiSkill.UpdateMyTarget(myMinoinTarget);
         ultiSkill.UseSkillbyPlayer();
+        ultiSkill.onSkillPlayed -= InvokeSkillPlayed;
     }
 
     private void UseDash()
     {
         if (dashSkill == null) return;
+        dashSkill.onSkillPlayed += InvokeSkillPlayed;
         dashSkill.UpdateMyTarget(myMinoinTarget);
         dashSkill.UseSkillbyPlayer();
+        dashSkill.onSkillPlayed -= InvokeSkillPlayed;
+    }
+
+    private void InvokeSkillPlayed(SkillData skillData)
+    {
+        onSkillPlayed?.Invoke(skillData);
     }
 
     public void PickUpNewSkill(SkillData skill)
@@ -133,5 +149,14 @@ public class SkillsPlayer : MonoBehaviour
                 break;
         }
         return false;
+    }
+
+    public void DisableSkillsPlayability()
+    {
+        canPlay = false;
+    }
+    public void EnableSkillsPlayability()
+    {
+        canPlay = true;
     }
 }

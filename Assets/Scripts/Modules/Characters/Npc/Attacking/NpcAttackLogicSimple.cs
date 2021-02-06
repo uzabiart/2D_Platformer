@@ -12,7 +12,7 @@ public class NpcAttackLogicSimple : Module
     public UnityEvent onNoTargets;
 
     public Skill[] mySkills;
-    Skill nextSkillToUse;
+    public Skill nextSkillToUse;
     bool attacking;
 
     public override void Awake()
@@ -37,10 +37,10 @@ public class NpcAttackLogicSimple : Module
     {
         aggroView.SetActive(true);
         onTargetAdded?.Invoke();
-        StopAllCoroutines();
         if (nextSkillToUse != null)
             nextSkillToUse.HideNpcAttack();
-        StartCoroutine(FirstAttackDelay());
+        if (nextSkillToUse == null)
+            StartCoroutine(FirstAttackDelay());
         attacking = true;
     }
 
@@ -70,15 +70,17 @@ public class NpcAttackLogicSimple : Module
 
     void Attack()
     {
+        if (nextSkillToUse == null) return;
         nextSkillToUse.UseNpcSkill();
         nextSkillToUse.HideNpcAttack();
-        if (!attacking) return;
+        nextSkillToUse = null;
+        if (!attacking) { return; }
         StartCoroutine(AttackCooldown());
     }
 
     void UpdateMyTarget()
     {
-        if (mySensor.targets.Count <= 0) return;
+        if (mySensor.targets.Count <= 0) { nextSkillToUse = null; return; }
         int randomSkillId = UnityEngine.Random.Range(0, mySkills.Length);
         nextSkillToUse = mySkills[randomSkillId];
         Transform choosedTarget = mySensor.targets[UnityEngine.Random.Range(0, mySensor.targets.Count)];

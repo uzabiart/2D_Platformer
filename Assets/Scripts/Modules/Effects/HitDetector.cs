@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HitDetector : Module
 {
@@ -14,6 +15,8 @@ public class HitDetector : Module
     public bool doIHitAll;
     bool hitDisabled;
     SkillData mySkillData;
+
+    public UnityEvent iHit;
 
     public override void Awake()
     {

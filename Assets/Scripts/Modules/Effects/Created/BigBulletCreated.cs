@@ -13,7 +13,7 @@ public class BigBulletCreated : Effect
     {
         Modules modules = myTarget.GetComponentInParent<Modules>();
         if (modules == null) return;
-        myTarget.GetComponentInParent<Modules>().GetComponentInChildren<Health>().TakeDamage(damage);
+        myTarget.GetComponentInParent<Modules>().GetComponentInChildren<Health>().TakeDamage(damage, GetMyEntityId());
     }
 
     private void DestroyMeAfterDelay()

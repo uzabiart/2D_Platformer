@@ -20,8 +20,9 @@ public class Player : MapObject
         return myPlayerData.playerId;
     }
 
-    private void SetupMyColor()
+    public PlayerData GetMyPlayerData()
     {
+        return myPlayerData;
     }
 
     float GetRandomFloat()

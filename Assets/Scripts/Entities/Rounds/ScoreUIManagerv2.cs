@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class ScoreUIManagerv2 : MonoBehaviour
 {
-    //public List<PlayerRoundScore> players = new List<PlayerRoundScore>();
     public PlayerRoundLifes[] scorePanels;
-    //public GameObject roundWinnerPanel;
-    //public GameObject gameWinnerPanel;
 
     private void OnEnable()
     {

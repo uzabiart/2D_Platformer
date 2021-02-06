@@ -56,7 +56,7 @@ public class MushroomBlowup : Module
     {
         if (!safetyOff) return;
         if (health != null)
-            health.TakeDamage(myDamage);
+            health.TakeDamage(myDamage, myPlayerId);
         Transform hitT = Instantiate(hitEffect).transform;
         hitT.position = transform.position;
         Destroy(myEntity.gameObject);

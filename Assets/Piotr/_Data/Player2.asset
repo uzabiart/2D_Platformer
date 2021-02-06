@@ -12,3 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa5490a96dc6594ea2e22e1878ce2d8, type: 3}
   m_Name: Player2
   m_EditorClassIdentifier: 
+  playerId: Entity_14950790
+  playerLifes: 3
+  playerMana:
+    rechargeTimeOfMaxMana: 4
+    maxMana: 100
+    currentMana: 100
+  playerScore:
+    kills: 0
+    deaths: 1
+    level: 1
+    gold: 0
+  myColor: {r: 0.8026588, g: 0.76022935, b: 0.74561393, a: 1}
+  playerSceneReference: {fileID: 0}
+  playerLogic: {fileID: 0}
+  giveGoldAmount: 300

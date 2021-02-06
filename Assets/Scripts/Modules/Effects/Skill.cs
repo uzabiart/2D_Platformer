@@ -20,6 +20,8 @@ public class Skill : Module
     public GameObject coneForNpc;
     protected bool npcAttack;
 
+    public Action<SkillData> onSkillPlayed;
+
     public override void Awake()
     {
         base.Awake();
@@ -52,12 +54,11 @@ public class Skill : Module
         skipDoubleClick = true;
         if (pressing) { StopUsingSkill(); pressing = false; }
         else { pressing = true; }
-        SetupMyTarget();
         UseSkillIfCdOff();
         StartCoroutine(PressingStart());
     }
 
-    private void SetupMyTarget()
+    private void CheckMyTarget()
     {
         if (myTarget == null && gameData.players.Count > 1)
             myTarget = gameData.GetMyOpponentInfo(myEntity.GetMyEntityId()).playerSceneReference.transform;
@@ -67,6 +68,7 @@ public class Skill : Module
     {
         if (isCd) return;
         isCd = true;
+        onSkillPlayed?.Invoke(mySkillData);
         UseSkill();
         StartCoroutine(CdOff(currentCooldown));
     }
@@ -83,6 +85,7 @@ public class Skill : Module
 
     public virtual void UseSkill()
     {
+        CheckMyTarget();
     }
 
     public virtual void StopUsingSkill()

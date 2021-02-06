@@ -24,10 +24,12 @@ public class RandomMissilesSkill : Skill
 
     private void SpawnRandomMissle()
     {
+        base.UseSkill();
         Transform newBullet = Instantiate(missilePrefab).transform;
         newBullet.GetComponentInChildren<HitDetector>().UpdateMyInfo(GetMyPlayerInfo().playerId, mySkillData);
         newBullet.position = myEntity.transform.position;
         Rigidbody2D rigi = newBullet.GetComponent<Rigidbody2D>();
+        newBullet.GetComponentInChildren<Entity>().entityId = myEntity.GetMyEntityId();
 
         Vector2 direction = transform.position - Vector3.zero;
         Vector3 slightlyRandomPosition = Vector3.zero;

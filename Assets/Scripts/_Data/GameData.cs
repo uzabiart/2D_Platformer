@@ -29,15 +29,16 @@ public class GameData : ScriptableObject
     {
         PlayerData newPlayer = null;
         Entity playerEntity = player.GetComponentInParent<Entity>();
-        playerEntity.GenerateMyId();
         if (deadPlayer != null)
         {
             newPlayer = deadPlayer;
+            playerEntity.entityId = deadPlayer.playerId;
             newPlayer.playerSceneReference = player.GetComponentInParent<Entity>().transform;
             newPlayer.playerLogic = player.GetComponentInParent<Player>();
         }
         else
         {
+            playerEntity.GenerateMyId();
             newPlayer = availablePlayers[players.Count];
             newPlayer.playerScore.ClearMe(newPlayer.playerScore);
             newPlayer.playerLifes = 3;
@@ -116,11 +117,13 @@ public class PlayerScoreInfo
     public int kills;
     public int deaths;
     public int level;
+    public int gold;
 
     public void ClearMe(PlayerScoreInfo scoreInfo)
     {
         scoreInfo.kills = 0;
         scoreInfo.deaths = 0;
         scoreInfo.level = 1;
+        scoreInfo.gold = 0;
     }
 }

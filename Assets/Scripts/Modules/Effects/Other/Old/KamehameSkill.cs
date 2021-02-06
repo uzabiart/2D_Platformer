@@ -32,6 +32,7 @@ public class KamehameSkill : Skill
 
     public override void UseSkill()
     {
+        base.UseSkill();
         StopAllCoroutines();
         canSteerKamehame = true;
         myMovement.ChangeCurrentSpeed(0f);
@@ -44,6 +45,7 @@ public class KamehameSkill : Skill
         newKamehame = Instantiate(kamehamePrefab).transform;
         newKamehame.position = myEntity.transform.position;
         newKamehame.GetComponentInChildren<HitDetector>().UpdateMyInfo(myEntity.GetMyEntityId(), mySkillData);
+        newKamehame.GetComponent<Entity>().entityId = myEntity.GetMyEntityId();
 
         PlayerData opponentTransform = gameData.GetMyOpponentInfo(myEntity.GetMyEntityId());
         Vector2 opponentPosition = Vector2.zero;
@@ -53,7 +55,7 @@ public class KamehameSkill : Skill
 
         opponentPosition = new Vector2(opponentPosition.x - myEntity.transform.position.x, opponentPosition.y - myEntity.transform.position.y);
         float angle = Mathf.Atan2(opponentPosition.y, opponentPosition.x) * Mathf.Rad2Deg;
-        newKamehame.localEulerAngles = new Vector3(0f, 0f, angle * Time.deltaTime * 800f);
+        newKamehame.localEulerAngles = new Vector3(0f, 0f, angle);
     }
 
     private void SteerKamehame(Vector3 input)
@@ -64,12 +66,12 @@ public class KamehameSkill : Skill
             rotationSpeed = -1;
         else if (input.x < 0)
             rotationSpeed = 1f;
-        newKamehame.Rotate(new Vector3(0, 0, rotationSpeed * 0.03f));
+        newKamehame.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime * 50f));
     }
 
     private IEnumerator KamehameSequence()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         canSteerKamehame = false;
         myMovement.ResetSpeed();
         yield return new WaitForSeconds(6f);
