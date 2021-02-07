@@ -17,6 +17,6 @@ public class DashSkill : Skill
     public override void UseSkill()
     {
         if (movement.GetMyMovingVector() == Vector3.zero) return;
-        myEntity.transform.DOMove(myEntity.transform.position + (movement.GetMyMovingVector() * 5f), 0.2f);
+        myEntity.transform.DOMove(myEntity.transform.position + (movement.GetMyMovingVector() * 7f), 0.2f);
     }
 }

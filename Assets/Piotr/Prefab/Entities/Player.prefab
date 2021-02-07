@@ -615,7 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba561dfab9743bc439167984c3df5fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 7
   currentSpeed: 0
   animator: {fileID: 3799002539746259420}
 --- !u!1 &6558097126987532659
@@ -989,6 +989,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityId: 
+  onCreation:
+    m_PersistentCalls:
+      m_Calls: []
   playerData: {fileID: 0}
   myView: {fileID: 6558097127956532014}
   myPlayerData: {fileID: 0}
@@ -1527,6 +1530,14 @@ PrefabInstance:
     - target: {fileID: 6185296131583761293, guid: 69029399271dedd44844c0c0dac3c1d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8744711265056662956, guid: 69029399271dedd44844c0c0dac3c1d1, type: 3}
+      propertyPath: health.maxHealth
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8744711265056662956, guid: 69029399271dedd44844c0c0dac3c1d1, type: 3}
+      propertyPath: health.currentHealth
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69029399271dedd44844c0c0dac3c1d1, type: 3}

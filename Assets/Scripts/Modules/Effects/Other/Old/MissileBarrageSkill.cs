@@ -37,6 +37,6 @@ public class MissileBarrageSkill : Skill
 
         direction = transform.position - slightlyRandomPosition;
 
-        rigi.AddForceAtPosition(direction.normalized * 240f * -2f, transform.position);
+        rigi.AddForceAtPosition(direction.normalized * 440f * -2f, transform.position);
     }
 }

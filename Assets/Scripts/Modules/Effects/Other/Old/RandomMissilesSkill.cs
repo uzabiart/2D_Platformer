@@ -38,6 +38,6 @@ public class RandomMissilesSkill : Skill
 
         direction = transform.position - slightlyRandomPosition;
 
-        rigi.AddForceAtPosition(direction.normalized * 350f * -2f, transform.position);
+        rigi.AddForceAtPosition(direction.normalized * 480f * -2f, transform.position);
     }
 }
