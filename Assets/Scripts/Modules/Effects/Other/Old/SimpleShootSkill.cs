@@ -22,6 +22,6 @@ public class SimpleShootSkill : Skill
 
         direction = transform.position - slightlyRandomPosition;
 
-        rigi.AddForceAtPosition(direction.normalized * 300f * -2f, transform.position);
+        rigi.AddForceAtPosition(direction.normalized * 440f * -2f, transform.position);
     }
 }

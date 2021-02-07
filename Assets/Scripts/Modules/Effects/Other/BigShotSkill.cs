@@ -19,6 +19,6 @@ public class BigShotSkill : Skill
         if (myTarget != null)
             direction = transform.position - myTarget.position;
 
-        rigi.AddForceAtPosition(direction.normalized * 230f * -2f, transform.position);
+        rigi.AddForceAtPosition(direction.normalized * 400f * -2f, transform.position);
     }
 }
