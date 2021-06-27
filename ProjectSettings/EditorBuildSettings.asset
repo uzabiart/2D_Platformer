@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/AGA/TestowanieMap/Nowa_mapa_1.unity
+    path: Assets/AGA/Mapy/Nowa_mapa_1.unity
     guid: a76acb6fd1c76e947b50dba79be856a0
   m_configObjects: {}
